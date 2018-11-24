@@ -14,7 +14,7 @@
 		<!-- This is a much more advanced CSS style sheet then the one we have made, its still needed, this is for the alingment of all the elements -->
 		<link href="./CSS_Sheet.css" rel="stylesheet" type="text/css" />
 		<!-- This is the custom CSS sheet -->
-		<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+		
 		<!-- Link to assets will go here -->
 		
 	</head>
@@ -39,6 +39,12 @@
 			</div>
 			<br>
 			<div class="row">
+            	<div class="col-xs-15 text-center">
+            		<button id="action-button" onclick="toCheck()"> Start Self-Drive </button>
+            	</div>
+            </div>
+            <br>
+			<div class="row">
 				<div class="col-xs-15 text-center">
 					<button id="MoveForwardButton" class ="DirectionButton"> <i class="up"></i> Forward </button>
 					<!-- This is for the forward button -->
@@ -56,12 +62,6 @@
                 <div class="col-xs-15 text-center">
                     <button id="MoveBackButton" class="DirectionButton">  Reverse <i class="down"></i> </button>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-            	<div class="col-xs-15 text-center">
-            		<button id="action-button" onclick="toCheck()"> Start Self-Drive </button>
-            	</div>
             </div>
         </div>
         <!-- We have not got all the facy elements, time for the hard work -->
