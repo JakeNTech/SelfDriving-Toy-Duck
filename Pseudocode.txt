@@ -1,0 +1,25 @@
+# HMTL Fake Code:
+	html
+	<heading> Self Driving Duck <end of heading>
+	<video stream>
+	video stream = from camera on pi
+	<end of video stream>
+	<break>
+	<button><when pressed = DuckUp()> up <end of button>
+	<break>
+	<button><when pressed = DuckLeft()> left <end of button>
+	<mini break> 
+	<button><when pressed = DuckRight()> right <end of button>
+	<break>
+	<button><when pressed = DuckDown()> down <end of button>
+
+	<java>
+	javaFile = open("java.js")
+	<end java>
+----------------------------------------------------------------
+# Java Plan Code
+
+----------------------------------------------------------------
+# Main python Code
+
+----------------------------------------------------------------
