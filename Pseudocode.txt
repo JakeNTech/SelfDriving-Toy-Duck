@@ -1,10 +1,11 @@
 # HMTL Fake Code:
-	html
+	<html>
 	<heading> Self Driving Duck <end of heading>
 	<video stream>
 	video stream = from camera on pi
 	<end of video stream>
 	<break>
+	<button><when pressed = SelfDrive()> Self-Drive <end of button>
 	<button><when pressed = DuckUp()> up <end of button>
 	<break>
 	<button><when pressed = DuckLeft()> left <end of button>
@@ -16,9 +17,29 @@
 	<java>
 	javaFile = open("java.js")
 	<end java>
+	<end html>
 ----------------------------------------------------------------
 # Java Plan Code
-
+	get HTML Elements
+	if DuckUp():
+		output("You have sleected up")
+		ToHat(Up,TimeButtonWasHeldFor)
+	if DuckDown():
+		output("You have sleected down")
+		ToHat(down,TimeButtonWasHeldFor)
+	if DuckLeft():
+		output("You have sleected left")
+		ToHat(left,TimeButtonWasHeldFor)
+	if DuckRight():
+		output("You have sleected right")
+		ToHat(right,TimeButtonWasHeldFor)
+	From Server Get Video Stream:
+		connect to Video
+		Play in browser
+	function(SelfDrive):
+		if SelfDriveButton = pressed:
+			button_text="quack"
+			boradcast = "Self drive" to Python
 ----------------------------------------------------------------
 # Main python Code
 
