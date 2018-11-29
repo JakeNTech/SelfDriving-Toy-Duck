@@ -42,5 +42,14 @@
 			boradcast = "Self drive" to Python
 ----------------------------------------------------------------
 # Main python Code
+	Import all the other partial files
 
+	arguments = CollectArguments(Arguments.train script)
+
+	perameaters = CollectPerameaters(Perms)
+
+	Start Hosting Web serever
+
+	print("ready to run")
+	stream video
 ----------------------------------------------------------------
