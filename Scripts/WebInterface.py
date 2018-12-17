@@ -32,6 +32,7 @@ class LocalServer():
 		CameraStream(self.duck)
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
+		#This starts the camera stream for the duck, and users a pre-defined loop
 class WebSocket(tornado.webocket.WebSocketHandler):
 	def on_message(self, message):
 		#This starts an infinate loop when its called up
@@ -83,6 +84,3 @@ class WebSocket(tornado.webocket.WebSocketHandler):
 				self.write_message(base64.b64encode(self.applicaiton.duck.camerea.last_img_bytes))
 			except tornado.websocket.WebSocketClosedError:
 				self.camera_loop.stop()
-
-
-
