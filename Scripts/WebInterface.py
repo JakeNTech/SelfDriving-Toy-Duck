@@ -24,7 +24,7 @@ class LocalServer():
 
 		root = Utils.set_root()
 		path = os.path.join(root, '../../FILES')
-		#Get root privlages on pi and then adjust paths
+		#Get root privlages on pi and then adjust paths to find the right files
 
 	def stream(self):
 		settings = {'debug':True}
