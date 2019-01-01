@@ -1,17 +1,17 @@
 #Self Driving (rc) duck
 #A-Level Project
 #30-12-2019
-import DuckCamera
-import Utilitys
-#Imports the other scripts
 import RPi.GPIO as GPIO
 import numpy
 import threading
 import time
 #Import Python Libarys
+import DuckCamera
+import Utilitys
+#Imports the other scripts
 
 class SelfDrivingDuck(object):
-	#---------Initialsation settings (NEEDS FINISHING)-----
+	#---------Initialsation settings -----
 	def __init__(self,_parameters):
 		self.drive = False
 		self.log_photos = False
@@ -20,13 +20,13 @@ class SelfDrivingDuck(object):
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents
-		self.name =
-		self.width = 
-		self.height = 
-		self.verbose = 
-		self.config =
-		self.channels = 
-		self.defult_speed =
+		self.name = _parameters['duck_params']['name']
+		self.width = _parameters['duck_params']['width']
+		self.height = _parameters['duck_params']['height']
+		self.verbose = _parameters['duck_params']['verbose']
+		self.configuration = _parameters['duck_params']['config']
+		self.channels = _parameters['duck_params']['channels']
+		self.defult_speed = self.config['SPEED']['bogstanderd']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
 		if('train_data_params' in _parameters):
@@ -60,7 +60,7 @@ class SelfDrivingDuck(object):
 			GPIO.setup(self.configuration[direciton]['pin'],GPIO.OUT)
 		#Sets Defult speed
 		self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
-		self.speed.start(self.configuration["SPEED"]['defult'])
+		self.speed.start(self.configuration["SPEED"]['bogstanderd'])
 		#Sets all the pins to false to prevent uncontroled movement, pins have
 		#to be on for settings
 		self.stop()
@@ -92,7 +92,7 @@ class SelfDrivingDuck(object):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
 			if(_directions[0]!="FORWARD"):
-				NewSpeed = int(self.defult_speed*2)
+				NewSpeed = int(self.bogstanderd_speed*2)
 				if (NewSpeed > 100): 
 					s = 100
 				self.set_speed(NewSpeed)
