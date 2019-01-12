@@ -34,7 +34,7 @@ class LocalServer():
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
 		#This starts the camera stream for the duck, and users a pre-defined loop
-class WebSocket(tornado.webocket.WebSocketHandler):
+class WebSocket(tornado.websocket.WebSocketHandler):
 	def on_message(self, message):
 		#This starts an infinate loop when its called up
 		if message == "Start camera":
