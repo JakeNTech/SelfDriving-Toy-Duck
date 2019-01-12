@@ -10,7 +10,7 @@ import DuckCamera
 import Utilitys
 #Imports the other scripts
 
-class SelfDrivingDuck(object):
+class DrivingDuck(object):
 	#---------Initialsation settings -----
 	def __init__(self,_parameters):
 		self.drive = False
