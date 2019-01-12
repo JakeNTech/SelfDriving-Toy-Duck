@@ -19,8 +19,7 @@ class DrivingDuck(object):
 		self.current_direction = []
 		#When initalising it clears all the values for manual control
 		#Without loggin
-		#Prevents any accidents
-		self.name = _parameters['duck_params']['name']
+		#Prevents any accidents\
 		self.width = _parameters['duck_params']['width']
 		self.height = _parameters['duck_params']['height']
 		self.verbose = _parameters['duck_parames']['verbose']
