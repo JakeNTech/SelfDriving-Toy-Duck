@@ -76,7 +76,7 @@ def get_parameters(_train):
 			'path': data['train_data_storage'],
 			'width': data['width'],
 			'height': data['height'],
-			'channels':data:['channels']
+			'channels':data['channels']
 		}
 	else:
 		# if not in training mode set to use the model file
