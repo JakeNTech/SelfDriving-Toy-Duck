@@ -23,7 +23,7 @@ class LocalServer():
 		self.camera = self.duck.camera.picam
 
 		root = Utils.set_root()
-		path = os.path.join(root, '../../FILES')
+		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Get root privlages on pi and then adjust paths to find the right files
 
 	def stream(self):
