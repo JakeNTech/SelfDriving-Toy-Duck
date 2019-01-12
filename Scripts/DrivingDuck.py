@@ -20,12 +20,12 @@ class DrivingDuck(object):
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents
-		#self.name = _parameters['duck_params']['name']
-		self.width = _parameters['duck_parameters']['width']
-		self.height = _parameters['duck_parameters']['height']
-		self.verbose = _parameters['duck_parameters']['verbose']
-		self.configuration = _parameters['duck_parameters']['config']
-		self.channels = _parameters['duck_parameters']['channels']
+		self.name = _parameters['duck_params']['name']
+		self.width = _parameters['duck_params']['width']
+		self.height = _parameters['duck_params']['height']
+		self.verbose = _parameters['duck_parames']['verbose']
+		self.configuration = _parameters['duck_params']['config']
+		self.channels = _parameters['duck_parames']['channels']
 		self.defult_speed = self.config['SPEED']['bogstanderd']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
