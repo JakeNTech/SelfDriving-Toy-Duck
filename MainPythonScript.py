@@ -1,7 +1,7 @@
 from Scripts import Utilitys, WebInterface, SelfDrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
-if(__name__ = "__main__"):
+if(__name__ == "__main__"):
 	args = Utilitys.get_args()
 	# This gets the arguments from the Utilitys script
 
