@@ -64,14 +64,14 @@ class CameraStream(object):
 			img.save(f, "JPEG")
 			self.camera.last_img_bytes = f.getvalue()
 			#This converts the image into its raw btes value and then saves it
-class ObjectDetection(object):
+#class ObjectDetection(object):
 	#this bit is for the object detection
-	def detect(self, _image):
-		cascade_object = self.classifier.detectMultiScale(_image, scaleFactor=1,minNeighbours=5,minSize=(20,20),flags=cv2.CASCADE_SCALE_TIME)
-		if(len(casecade_object)):
-			for (x_pos, y-pos, width, height) in casecade_object:
-				cv2.rectangle(_image, (xpos+8, ypos-5), (x_pos+width-5),(255,255,255),2)
-		return _image
+#	def detect(self, _image):
+#		cascade_object = self.classifier.detectMultiScale(_image, scaleFactor=1,minNeighbours=5,minSize=(20,20),flags=cv2.CASCADE_SCALE_TIME)
+#		if(len(casecade_object)):
+#			for (x_pos, y-pos, width, height) in casecade_object:
+#				cv2.rectangle(_image, (xpos+8, ypos-5), (x_pos+width-5),(255,255,255),2)
+#		return _image
 		#This finds an object from the model file and puts a box arround it
 		#It could be made to put text under the object that has been detected, this 
 		#will be seen by the end user on the HTML page
