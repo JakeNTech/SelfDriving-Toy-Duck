@@ -115,6 +115,6 @@ class SelfDrivingDuck(object):
 	def shutdown(self):
 		Utilitys.print_log("Time for some sleep")
 		GPIO.cleanup()
-	if(self.train_data):
-		self.train_data.save()
+		if(self.train_data):
+			self.train_data.save()
 #---------END SCRIPT--------------------

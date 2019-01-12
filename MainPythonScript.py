@@ -1,4 +1,4 @@
-from Scripts import Utilitys, WebInterface, SelfDrivingDuck
+from Scripts import Utilitys, WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 if(__name__ == "__main__"):
