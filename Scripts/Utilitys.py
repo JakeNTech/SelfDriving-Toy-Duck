@@ -56,7 +56,7 @@ def get_parameters(_train):
 			'pigame': data["pigame"],
 			'verbose': data["verbose"],
 			'channels': data["channels"],
-			'duck_config': data['duck_config']
+			'duck_configuration': data['duck_config']
 		}
 		,'camera_params':{
 			'path': data["train_data_stoage"],
