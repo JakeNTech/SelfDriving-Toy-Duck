@@ -25,7 +25,7 @@ class DrivingDuck(object):
 		self.verbose = _parameters['duck_params']['verbose']
 		self.configuration = _parameters['duck_params']['duck_configuration']
 		self.channels = _parameters['duck_params']['channels']
-		self.defult_speed = self.config['SPEED']['bogstanderd']
+		self.defult_speed = self.configuration['SPEED']['bogstanderd']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
 		if('train_data_params' in _parameters):
