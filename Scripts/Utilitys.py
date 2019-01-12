@@ -38,7 +38,7 @@ def root_accsess():
 #This get root privaleges, the second highest you can get on UNIX
 #It goes under SU rights
 def get_arguments():
-	parser = argparse.ArgumentsParser(prog="drive")
+	parser = argparse.ArgumentParser(prog="drive")
 	parser.add_arguments("-train",help="Set if wanting to use train mode", action="store_true", defult=False)
 	prased_args = parser.parse_args()
 	return prased_args
