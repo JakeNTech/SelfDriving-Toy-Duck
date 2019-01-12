@@ -5,10 +5,10 @@ if(__name__ == "__main__"):
 	args = Utilitys.get_arguments()
 	# This gets the arguments from the Utilitys script
 
-	perms = Utilitys.get_perms(args.train)
+	perms = Utilitys.get_parameters(args.train)
 	#Featches the perameaters
 
-	duck = SelfDrivingDuck.SelfDrivingDuck(perms)
+	duck = SelfDrivingDuck.DrivingDuck(perms)
 	# This gets the duck ready for ation
 
 	duck.webinterface = WebInterface.LocalServer(perms['webserver_params'], duck)
