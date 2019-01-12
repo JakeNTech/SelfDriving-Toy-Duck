@@ -20,7 +20,7 @@ class DrivingDuck(object):
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents
-		self.name = _parameters['duck_params']['name']
+		#self.name = _parameters['duck_params']['name']
 		self.width = _parameters['duck_params']['width']
 		self.height = _parameters['duck_params']['height']
 		self.verbose = _parameters['duck_params']['verbose']
