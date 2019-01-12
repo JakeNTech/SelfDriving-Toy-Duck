@@ -22,9 +22,9 @@ class DrivingDuck(object):
 		#Prevents any accidents\
 		self.width = _parameters['duck_params']['width']
 		self.height = _parameters['duck_params']['height']
-		self.verbose = _parameters['duck_parames']['verbose']
+		self.verbose = _parameters['duck_params']['verbose']
 		self.configuration = _parameters['duck_params']['config']
-		self.channels = _parameters['duck_parames']['channels']
+		self.channels = _parameters['duck_params']['channels']
 		self.defult_speed = self.config['SPEED']['bogstanderd']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
