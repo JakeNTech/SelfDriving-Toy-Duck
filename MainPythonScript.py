@@ -2,7 +2,7 @@ from Scripts import Utilitys, WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 if(__name__ == "__main__"):
-	args = Utilitys.get_args()
+	args = Utilitys.get_arguments()
 	# This gets the arguments from the Utilitys script
 
 	perms = Utilitys.get_perms(args.train)
