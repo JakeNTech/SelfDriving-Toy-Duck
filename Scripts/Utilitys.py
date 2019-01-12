@@ -71,7 +71,7 @@ def get_parameters(_train):
 	if(_train):
 		# if the train mode is enabled then use thease parameaterts
 		params['train_data_params']= {
-			'path': data['train_data_storage'],
+			'path': data['train_data'],
 			'width': data['width'],
 			'height': data['height'],
 			'channels':data['channels']
