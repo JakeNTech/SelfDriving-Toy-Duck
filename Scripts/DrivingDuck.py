@@ -21,11 +21,11 @@ class DrivingDuck(object):
 		#Without loggin
 		#Prevents any accidents
 		#self.name = _parameters['duck_params']['name']
-		self.width = _parameters['duck_params']['width']
-		self.height = _parameters['duck_params']['height']
-		self.verbose = _parameters['duck_params']['verbose']
-		self.configuration = _parameters['duck_params']['config']
-		self.channels = _parameters['duck_params']['channels']
+		self.width = _parameters['duck_parameters']['width']
+		self.height = _parameters['duck_parameters']['height']
+		self.verbose = _parameters['duck_parameters']['verbose']
+		self.configuration = _parameters['duck_parameters']['config']
+		self.channels = _parameters['duck_parameters']['channels']
 		self.defult_speed = self.config['SPEED']['bogstanderd']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
