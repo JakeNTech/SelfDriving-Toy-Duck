@@ -8,7 +8,7 @@ if(__name__ == "__main__"):
 	perms = Utilitys.get_parameters(args.train)
 	#Featches the perameaters
 
-	duck = SelfDrivingDuck.DrivingDuck(perms)
+	duck = DrivingDuck.DrivingDuck(perms)
 	# This gets the duck ready for ation
 
 	duck.webinterface = WebInterface.LocalServer(perms['webserver_params'], duck)
