@@ -57,26 +57,26 @@ class WebSocket(tornado.webocket.WebSocketHandler):
 				self.application.car.move(direction)
 				#This makes it carry on as normal
 
-			#Stopping the duck
-			elif (message[5] in ["BACK","FORWARD","RIGHT","LEFT"]):
-				self.aplication.duck.stop()
+		#Stopping the duck
+		elif (message[5:] in ["BACK","FORWARD","RIGHT","LEFT"]):
+			self.application.duck.stop()
 			#If user has pressed the self drive button
-			elif (message == 'self_drive'):
-				Utils.print_log("\nDrive, "+self.application.duck.name + "!",1)
-				self.application.duck.drive = True
-				self.application.duck.self_drive()
+		elif (message == 'self_drive'):
+			Utils.print_log("\nDrive, "+self.application.duck.name + "!",1)
+			self.application.duck.drive = True
+			self.application.duck.self_drive()
 			# If the user selects to contol the duck manualy
-			elif (message=='manual'):
-				Utils.print_log("Manual Contol",1)
-				self.application.duck.drive = False
+		elif (message=='manual'):
+			Utils.print_log("Manual Contol",1)
+			self.application.duck.drive = False
 			#If the user wants to save the frames of the camera
-			elif (message=='save_frames'):
-				Utils.print_log("Saving frames")
-				self.application.duck.traindata.save()
-				self.application.duck.drive = False
-			# Error catching loop
-			else:
-				Utils.print_log("An unnexpected error cooured, from:" + message)
+		elif (message=='save_frames'):
+			Utils.print_log("Saving frames")
+			self.application.duck.traindata.save()
+			self.application.duck.drive = False
+		# Error catching loop
+		else:
+			Utils.print_log("An unnexpected error cooured, from:" + message)
 
 		def loop(self):
 			# This creates a loop, and excepts errors from the camera feed
