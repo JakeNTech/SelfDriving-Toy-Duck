@@ -53,7 +53,6 @@ def get_parameters(_train):
 		"duck_params": {
 			'width': data['width'],
 			'hight': data['height'],
-			'name': data['title'],
 			'pigame': data["pigame"],
 			'verbose': data["verbose"],
 			'channels': data["channels"],
