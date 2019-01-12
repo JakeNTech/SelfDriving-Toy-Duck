@@ -68,7 +68,7 @@ class ObjectDetection(object):
 	#this bit is for the object detection
 	def detect(self, _image):
 		cascade_object = self.classifier.detectMultiScale(_image, scaleFactor=1,minNeighbours=5,minSize=(20,20),flags=cv2.CASCADE_SCALE_TIME)
-		if(len(casecade_obj)):
+		if(len(casecade_object)):
 			for (x_pos, y-pos, width, height) in casecade_object:
 				cv2.rectangle(_image, (xpos+8, ypos-5), (x_pos+width-5),(255,255,255),2)
 		return _image
