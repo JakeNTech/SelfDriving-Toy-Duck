@@ -59,7 +59,7 @@ def get_parameters(_train):
 			'duck_configuration': data['duck_configuration']
 		}
 		,'camera_params':{
-			'path': data["train_data_stoage"],
+			'path': data["train_data"],
 			'width': data['width'],
 			'height': data['height']
 		}
