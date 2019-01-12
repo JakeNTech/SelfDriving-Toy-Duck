@@ -39,9 +39,9 @@ def root_accsess():
 #It goes under SU rights
 def get_arguments():
 	parser = argparse.ArgumentParser(prog="drive")
-	parser.add_arguments("-train",help="Set if wanting to use train mode", action="store_true", defult=False)
-	prased_args = parser.parse_args()
-	return prased_args
+	parser.add_argument("-train", help="Set for training", action="store_true", default=False)
+	prased_arguments = parser.parse_args()
+	return prased_arguments
 #This converts the command line arguments into a way python will understand
 def get_parameters(_train):
 	with open("config/config.json") as file:
