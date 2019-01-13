@@ -5,7 +5,7 @@ import time
 import threading
 import keras.backend.tensorflow_backend
 from keras.backend import clear_session
-from keras.backend import load_model
+from keras.models import load_model
 import tensorflow
 #The above imports the python modules
 import Utilities
