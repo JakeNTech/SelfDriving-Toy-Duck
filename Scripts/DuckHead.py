@@ -5,7 +5,7 @@ import time
 import threading
 import keras.backend.tensorflow_backend
 from keras.backend import clear_session
-from keras.backend import load_model as load_model as load
+from keras.backend import load_model
 import tensorflow
 #The above imports the python modules
 import Utilities
@@ -14,7 +14,7 @@ import Utilities
 class DuckHead(object):
 	def __init__(self,parameaters):
 		Utilities.print_log("Initialisation model",1)
-		self.model = load(_parameaters['model'])
+		self.model = load_model(_parameaters['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
