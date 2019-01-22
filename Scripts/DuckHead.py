@@ -14,7 +14,7 @@ from Scripts import Utilitys
 class DuckHead(object):
 	def __init__(self,parameaters):
 		Utilitys.log("Initialisation model",1)
-		self.model = load_model(_parameters['model'])
+		self.model = load_model(_params['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
