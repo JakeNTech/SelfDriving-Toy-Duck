@@ -1,3 +1,8 @@
+#--------------------
+#Needed for python3
+import os
+os.getcwd()
+#--------------------
 from DuckCamera import CameraStream
 # Imports the camerefeed from the DuckCamera script
 import Utilitys
