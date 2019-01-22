@@ -13,7 +13,7 @@ from Scripts import Utilitys
 #------------------------Predictions---------------------
 class DuckHead(object):
 	def __init__(self,parameaters):
-		Utilities.print_log("Initialisation model",1)
+		Utilitys.print_log("Initialisation model",1)
 		self.model = load_model(_parameaters['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
