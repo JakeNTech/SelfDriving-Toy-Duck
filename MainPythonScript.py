@@ -1,9 +1,5 @@
 #Main Script
 #--------------------
-#Needed for python3
-import os
-os.getcwd()
-#--------------------
 from Scripts import Utilitys, WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter

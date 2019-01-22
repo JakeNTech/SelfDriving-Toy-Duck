@@ -1,10 +1,6 @@
 #Duck Camera
 #Project Duck
 #--------------------
-#Needed for python3
-import os
-os.getcwd()
-#--------------------
 import Utilitys
 #Imports the utils script
 from picamera import PiCamera
