@@ -1,7 +1,7 @@
 #Duck Camera
 #Project Duck
 #--------------------
-import Utilitys
+from Scripts import Utilitys
 #Imports the utils script
 from picamera import PiCamera
 import picamera.array

@@ -8,7 +8,7 @@ from keras.backend import clear_session
 from keras.models import load_model
 import tensorflow
 #The above imports the python modules
-import Utilities
+from Scripts import Utilities
 #imports the Utilities script
 #------------------------Predictions---------------------
 class DuckHead(object):
