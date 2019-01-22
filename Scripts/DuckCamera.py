@@ -1,6 +1,7 @@
 #Duck Camera
 #Project Duck
-
+import os
+os.getcwd()
 import Utilitys
 #Imports the utils script
 from picamera import PiCamera
@@ -12,6 +13,7 @@ import time
 import cv2
 #NOOOO NO MORE CV2 PLEASE!
 import io
+
 
 #Getting the camere going
 class DuckCamera(object):
@@ -25,6 +27,7 @@ class DuckCamera(object):
 		self.picam.rotation = 180
 		self.picam.framerate = 15
 		self.picam.resoloution = (_parameters['width'], _parameters['height'])
+		Camera.rotation = 180
 		# This sets the rotation and resoloutin of the camera.
 		time.sleep(2)
 		#this allows for the camera to sort its self out in tearms of expouser
