@@ -13,14 +13,14 @@ from Scripts import Utilitys
 #------------------------Predictions---------------------
 class DuckHead(object):
 	def __init__(self,parameaters):
-		Utilitys.print_log("Initialisation model",1)
+		Utilitys.log("Initialisation model",1)
 		self.model = load_model(_parameaters['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
 		x = time.time()
 		resoloution = self.model.preditct(_image, batch_size=1)
-		x = Utilities.print_log("Model Predict",3,x)
+		x = Utilitys.log("Model Predict",3,x)
 		max_value = 0
 		for idx,val in enumerate(resoloution[0]):
 			if value > max_value:
@@ -58,5 +58,5 @@ class SelfDriving(object):
 				if (direction != self.duck.current_direction):
 					self.duck.stop(self.duck.current_direction)
 					self.duck.move(direction)
-				Utilities.print_log("Waddeling "+direction[0],2)
+				Utilitys.log("Waddeling "+direction[0],2)
 		self.duck.stop()

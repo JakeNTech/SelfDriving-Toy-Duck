@@ -17,7 +17,7 @@ import io
 #Getting the camere going
 class DuckCamera(object):
 	def __init__(self,_parameters):
-		Utils.print_log("Init. Camera")
+		Utilitys.log("Init. Camera")
 
 		self.stream = True
 		self.path = _parameters['path']
