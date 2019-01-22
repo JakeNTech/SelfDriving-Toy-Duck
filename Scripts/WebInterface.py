@@ -1,5 +1,5 @@
 #--------------------
-from DuckCamera import CameraStream
+import DuckCamera
 # Imports the camerefeed from the DuckCamera script
 import Utilitys
 #Import the utilitys script
