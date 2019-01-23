@@ -1,5 +1,5 @@
 #Project Self-Driving (toy) Duck
-#Utilities
+#Utilitiess
 import argparse
 import time
 import json
@@ -49,8 +49,8 @@ def get_parameters(_train):
 	# this opens the configuration file that contains information such as the 
 	#the GIPO pins
 	#Below is setting the setings for the duck
-	params = {
-		"duck__parameters": {
+	parameters = {
+		"duck_parameters": {
 			'width': data['width'],
 			'height': data['height'],
 			'pigame': data["pigame"],
@@ -58,19 +58,19 @@ def get_parameters(_train):
 			'channels': data["channels"],
 			'duck_configuration': data['duck_configuration']
 		}
-		,'camera__parameters':{
+		,'camera_parameters':{
 			'path': data["train_data"],
 			'width': data['width'],
 			'height': data['height']
 		}
-		,'webserver__parameters':{
+		,'webserver_parameters':{
 			'port': data['port'],
 			'duck': None
 		}
 	}
 	if(_train):
 		# if the train mode is enabled then use thease parameaterts
-		params['train_data_parameters']= {
+		parameters['train_data_parameters']= {
 			'path': data['train_data'],
 			'width': data['width'],
 			'height': data['height'],
@@ -78,7 +78,7 @@ def get_parameters(_train):
 		}
 	else:
 		# if not in training mode set to use the model file
-		params['head_parameters'] = {
+		parameters['head_parameters'] = {
 			"model": data["model"]
 		}
-	return params
+	return parameters

@@ -1,4 +1,6 @@
 #Main Script
+#Command to run "sudo python3 MainPythonScript.py"
+#Command to train "sudo python3 MainPythonScript.py train"
 #--------------------
 from Scripts import Utilities , WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
