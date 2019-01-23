@@ -41,7 +41,7 @@ class CameraFeed(object):
 	def __init__(self,_duck):
 		self.duck = _duck
 		self.camera = self.duck.camera
-		thread = threading.Thred(target=self.run, args=())
+		thread = threading.Thread(target=self.run, args=())
 		thread.deamon = True
 		thread.start()
 		#This creates a thread for the camera feed
