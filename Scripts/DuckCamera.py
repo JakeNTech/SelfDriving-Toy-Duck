@@ -52,8 +52,9 @@ class CameraFeed(object):
 			self.camera.picam.capture(raw_capture, format="rgb",use_video_port=True)
 			#this creates a RGB capture and files it into an array
 
-			img = self.detection.detect(raw_capture.array.astype('unit8'))
+			img = self.detection.detect(raw_capture.array.astype('uint8'))
 			# this runs the object detection
+			self.camera.stop_detected = self.detection.stop_detected
 
 			image_array = numpy.zeros([1,230,330,3])
 			image_array[0]=img
