@@ -1,6 +1,6 @@
 #--------------------
 # Imports the camerefeed from the DuckCamera script
-from Scripts import Utilitys, DuckCamera
+from Scripts import Utilities , DuckCamera
 #Import the utilitys script
 import time
 import os
@@ -17,12 +17,12 @@ import tornado.web
 class LocalServer():
 	#Class to help contain the code
 	def __init__(self,parameters,_duck):
-		Utilitys.log("Init. Server",1)
+		Utilities .log("Init. Server",1)
 		#logs the session start
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
 
-		root = Utils.set_root()
+		root = Utilities.set_root()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Get root privlages on pi and then adjust paths to find the right files
 
@@ -62,21 +62,21 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.application.duck.stop()
 			#If user has pressed the self drive button
 		elif (message == 'self_drive'):
-			Utilitys.log("\nDrive, "+self.application.duck.name + "!",1)
+			Utilities.log("\nDrive, "+self.application.duck.name + "!",1)
 			self.application.duck.drive = True
 			self.application.duck.self_drive()
 			# If the user selects to contol the duck manualy
 		elif (message=='manual'):
-			Utilitys.log("Manual Contol",1)
+			Utilities.log("Manual Contol",1)
 			self.application.duck.drive = False
 			#If the user wants to save the frames of the camera
 		elif (message=='save_frames'):
-			Utilitys.log("Saving frames")
+			Utilities.log("Saving frames")
 			self.application.duck.traindata.save()
 			self.application.duck.drive = False
 		# Error catching loop
 		else:
-			Utilitys.log("An unnexpected error cooured, from:" + message)
+			Utilities.log("An unnexpected error cooured, from:" + message)
 
 		def loop(self):
 			# This creates a loop, and excepts errors from the camera feed

@@ -1,8 +1,8 @@
 #Duck Camera
 #Project Duck
 #--------------------
-from Scripts import Utilitys
-#Imports the utils script
+from Scripts import Utilities 
+#Imports the Utilities script
 from picamera import PiCamera
 import picamera.array
 from PIL import Image
@@ -17,7 +17,7 @@ import io
 #Getting the camere going
 class DuckCamera(object):
 	def __init__(self,_parameters):
-		Utilitys.log("Init. Camera")
+		Utilities.log("Init. Camera")
 
 		self.stream = True
 		self.path = _parameters['path']
@@ -32,7 +32,7 @@ class DuckCamera(object):
 		#this allows for the camera to sort its self out in tearms of expouser
 		#and contrast, and fous. This also factors in the delays
 		def save_frame(self,_turn):
-			name = string(Utils.ms_ephoc())+":"+string(_turn)
+			name = string(Utilities.ms_ephoc())+":"+string(_turn)
 			#This takes the movement name ie.left and converts it to text
 			#This allows for training
 

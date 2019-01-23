@@ -1,14 +1,14 @@
 #Main Script
 #--------------------
-from Scripts import Utilitys, WebInterface, DrivingDuck
+from Scripts import Utilities , WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 
 if(__name__ == "__main__"):
-	arguments = Utilitys.get_arguments()
-	# This gets the arguments from the Utilitys script
+	arguments = Utilities.get_arguments()
+	# This gets the arguments from the Utilities script
 
-	parameters = Utilitys.get_parameters(arguments.train)
+	parameters = Utilities.get_parameters(arguments.train)
 	#Featches the perameaters
 
 	duck = DrivingDuck.DrivingDuck(parameters)

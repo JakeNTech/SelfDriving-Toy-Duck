@@ -8,19 +8,19 @@ from keras.backend import clear_session
 from keras.models import load_model
 import tensorflow
 #The above imports the python modules
-from Scripts import Utilitys
+from Scripts import Utilities
 #imports the Utilities script
 #------------------------Predictions---------------------
 class DuckHead(object):
 	def __init__(self,parameaters):
-		Utilitys.log("Initialisation model",1)
+		Utilities.log("Initialisation model",1)
 		self.model = load_model(_params['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
 		x = time.time()
 		resoloution = self.model.preditct(_image, batch_size=1)
-		x = Utilitys.log("Model Predict",3,x)
+		x = Utilities.log("Model Predict",3,x)
 		max_value = 0
 		for idx,val in enumerate(resoloution[0]):
 			if value > max_value:
@@ -58,5 +58,5 @@ class SelfDriving(object):
 				if (direction != self.duck.current_direction):
 					self.duck.stop(self.duck.current_direction)
 					self.duck.move(direction)
-				Utilitys.log("Waddeling "+direction[0],2)
+				Utilities.log("Waddeling "+direction[0],2)
 		self.duck.stop()

@@ -7,7 +7,7 @@ import threading
 import time
 #Import Python Libarys
 from Scripts import DuckCamera
-from Scripts import Utilitys
+from Scripts import Utilities
 #Imports the other scripts
 
 class DrivingDuck(object):
@@ -52,7 +52,7 @@ class DrivingDuck(object):
 	def init_pins(self):
 		# Hat Settigns
 		# GPIO contols
-		Utilitys.og("Initalisation. Pins",1)
+		Utilities.log("Initalisation. Pins",1)
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
 		for direction in self.configuration:
@@ -77,7 +77,7 @@ class DrivingDuck(object):
 #--------Stoping the duck--------
 	def stop(self,_direciton=[]):
 		if (len(_directions)==0):
-			Utilitys.log("Stopping",2)
+			Utilities.log("Stopping",2)
 			directions = self.configuration
 		else:
 			directions = _directions
@@ -86,7 +86,7 @@ class DrivingDuck(object):
 		self.current_direction = _directions
 #---------Move arround corners---	
 	def move(self, _direciton):
-		Utilitys.log("Move "+direction[0],2)
+		Utilities.log("Move "+direction[0],2)
 		if (_directions != self.current_direction):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
@@ -109,10 +109,10 @@ class DrivingDuck(object):
 		t = time.time()
 		if(self.log_photos):
 			self.camera.save_frame(_directions[0])
-			t = Utilitys.log('Saved images',2,t)
+			t = Utilities.log('Saved images',2,t)
 #----------Getting the script to stop---	
 	def shutdown(self):
-		Utilitys.log("Time for some sleep")
+		Utilities.log("Time for some sleep")
 		GPIO.cleanup()
 		if(self.train_data):
 			self.train_data.save()
