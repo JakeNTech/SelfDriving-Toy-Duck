@@ -62,7 +62,7 @@ class CameraFeed(object):
 			#Saves the current image/frame being used and displayed
 			
 			img = Image.fromarray(img.astype("uint8"),mode="RGB")
-			f = io.BtyesIO()
+			f = io.BytesIO()
 			img.save(f, "JPEG")
 			self.camera.last_img_bytes = f.getvalue()
 			#This converts the image into its raw btes value and then saves it
