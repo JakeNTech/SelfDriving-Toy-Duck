@@ -61,7 +61,7 @@ class CameraFeed(object):
 			self.camera.last_img = image_array
 			#Saves the current image/frame being used and displayed
 			
-			img = Image.fromarray(img.astype("unit8"),mode="RBG")
+			img = Image.fromarray(img.astype("uint8"),mode="RGB")
 			f = io.BtyesIO()
 			img.save(f, "JPEG")
 			self.camera.last_img_bytes = f.getvalue()
