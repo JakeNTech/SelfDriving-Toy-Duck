@@ -26,9 +26,10 @@ class LocalServer():
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Get root privlages on pi and then adjust paths to find the right files
 
+		self.handlers = [(r",", IndexHandler),(r"/",websocket),(r'/static/(.*)', tornado.web.StaticFileHandlar, {'path':path})]
 	def stream(self):
 		settings = {'debug':True}
-		super(LocalServer,self).__init__(self.handlers, **settings)
+		super(LocalServer,self).__init__(self.handlers, **settings)		
 		CameraStream(self.duck)
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
