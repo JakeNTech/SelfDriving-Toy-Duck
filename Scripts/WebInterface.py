@@ -15,7 +15,7 @@ import tornado.websocket
 import tornado.web
 # Imports Tornado Modules
 
-class LocalServer():
+class LocalServer(tornado.web.Application):
 	#Class to help contain the code
 	def __init__(self,parameters,_duck):
 		Utilities .log("Init. Server",1)
