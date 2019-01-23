@@ -56,8 +56,8 @@ class CameraFeed(object):
 			# this runs the object detection
 			self.camera.stop_detected = self.detection.stop_detected
 
-			image_array = numpy.zeros([1,230,330,3])
-			image_array[0]=img
+			image_array = numpy.zeros([1,240,320,3])
+			image_array[0]= img
 			self.camera.last_img = image_array
 			#Saves the current image/frame being used and displayed
 			
