@@ -30,11 +30,11 @@ class DuckHead(object):
 		if move == 0:
 			direction = ["FORWARD"]
 		elif move == 1:
-			direciton = ["RIGHT","FORWARD"]
+			direction = ["RIGHT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		elif move == 2:
-			direciton = ["LEFT","FORWARD"]
+			direction = ["LEFT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		else:

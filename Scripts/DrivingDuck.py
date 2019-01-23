@@ -56,7 +56,7 @@ class DrivingDuck(object):
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
 		for direction in self.configuration:
-			GPIO.setup(self.configuration[direciton]['pin'],GPIO.OUT)
+			GPIO.setup(self.configuration[direction]['pin'],GPIO.OUT)
 		#Sets Defult speed
 		self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
 		self.speed.start(self.configuration["SPEED"]['default'])
@@ -75,7 +75,7 @@ class DrivingDuck(object):
 	def set_speed(self,_speed):
 		self.speedChangeDutyCycle(_speed)
 #--------Stoping the duck--------
-	def stop(self,_direciton=[]):
+	def stop(self,_direction=[]):
 		if (len(_directions)==0):
 			Utilities.log("Stopping",2)
 			directions = self.configuration
@@ -85,7 +85,7 @@ class DrivingDuck(object):
 			GPIO.output(self.configuration[direction]["pin"],True)
 		self.current_direction = _directions
 #---------Move arround corners---	
-	def move(self, _direciton):
+	def move(self, _direction):
 		Utilities.log("Move "+direction[0],2)
 		if (_directions != self.current_direction):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
