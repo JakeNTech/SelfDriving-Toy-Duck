@@ -69,7 +69,7 @@ class CameraFeed(object):
 class ObjectDetection(object):
 	def __init__(self):
 		self.stop_detected = False
-		self.classifier = cv2.CascadeClassifier('config/stop_sign.xml')
+		self.classifier = cv2.CascadeClassifier('Config/stop_sign.xml')
 
 	def detect(self, _image):
 		# detection
