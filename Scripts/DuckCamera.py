@@ -46,7 +46,7 @@ class CameraFeed(object):
 		thread.start()
 		#This creates a thread for the camera feed
 	def run(self):
-#		self.detection = ObjectDetection()
+		self.detection = ObjectDetection()
 		while (self.camera.stream):
 			raw_capture = picamera.array.PiRGBArray(self.camera.picam)
 			self.camera.picam.capture(raw_capture, format="rgb",use_video_port=True)
