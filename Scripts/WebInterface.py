@@ -23,7 +23,6 @@ class LocalServer(tornado.web.Application):
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
 		self.port = parameters['port']
-		self.cookie = parameters['cookie']
 		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Get root privlages on pi and then adjust paths to find the right files
