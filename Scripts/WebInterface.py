@@ -29,7 +29,7 @@ class LocalServer():
 		self.handlers = [(r"/", IndexHandler),(r"/",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
 	def stream(self):
 		settings = {'debug':True}
-		super(LocalServer,self).__init__(self.handlers, **settings)		
+		super(LocalServer,self).__init__(self.handlers, **settings)
 		CameraStream(self.duck)
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
