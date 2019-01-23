@@ -76,39 +76,39 @@ class DrivingDuck(object):
 		self.speedChangeDutyCycle(_speed)
 #--------Stoping the duck--------
 	def stop(self,_direction=[]):
-		if (len(_directions)==0):
+		if (len(_direction)==0):
 			Utilities.log("Stopping",2)
 			directions = self.configuration
 		else:
-			directions = _directions
+			directions = _direction
 		for directions in directions:
 			GPIO.output(self.configuration[direction]["pin"],True)
-		self.current_direction = _directions
+		self.current_direction = _direction
 #---------Move arround corners---	
 	def move(self, _direction):
 		Utilities.log("Move "+direction[0],2)
-		if (_directions != self.current_direction):
+		if (_direction != self.current_direction):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
-			if(_directions[0]!="FORWARD"):
+			if(_direction[0]!="FORWARD"):
 				NewSpeed = int(self.default_speed*2)
 				if (NewSpeed > 100): 
 					s = 100
 				self.set_speed(NewSpeed)
 			else:
 				self.set_speed(self.default_speed)
-			for directions in _directions:
+			for directions in _direction:
 				GPIO.output(self.configuration[direction]["pin"],True)
-			self.current_direction = _directions
+			self.current_direction = _direction
 #----------Logging Movement------	
-	def log_move(self,_directions):
+	def log_move(self,_direction):
 		if(self.train_mode):
-			self.train_data.log_train_data(_directions,self)
+			self.train_data.log_train_data(_direction,self)
 		else:
-			self.move(_directions)
+			self.move(_direction)
 		t = time.time()
 		if(self.log_photos):
-			self.camera.save_frame(_directions[0])
+			self.camera.save_frame(_direction[0])
 			t = Utilities.log('Saved images',2,t)
 #----------Getting the script to stop---	
 	def shutdown(self):
