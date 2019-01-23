@@ -34,7 +34,7 @@ def ms_epoch():
 #This function gets the time form a windows based system or systems where
 #standerd epoch doesn't work
 def root_accsess():
-	return os.path.normpath(os,path.dirname(__file__))
+	return os.path.normpath(os.path.dirname(__file__))
 #This get root privaleges, the second highest you can get on UNIX
 #It goes under SU rights
 def get_arguments():
