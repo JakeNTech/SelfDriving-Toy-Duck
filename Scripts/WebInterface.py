@@ -22,6 +22,7 @@ class LocalServer(tornado.web.Application):
 		#logs the session start
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
+		self.port = parameters['port']
 
 		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
