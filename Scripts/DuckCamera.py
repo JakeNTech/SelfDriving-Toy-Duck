@@ -26,7 +26,6 @@ class DuckCamera(object):
 		self.picam.rotation = 180
 		self.picam.framerate = 15
 		self.picam.resolution = (_parameters['width'], _parameters['height'])
-		self.picam.rotation = 180
 		# This sets the rotation and resoloutin of the camera.
 		time.sleep(2)
 		#this allows for the camera to sort its self out in tearms of expouser
@@ -38,7 +37,7 @@ class DuckCamera(object):
 
 #Getting the camera feed
 #NO TWITCH
-class CameraStream(object):
+class CameraFeed(object):
 	def __init__(self,_duck):
 		self.duck = _duck
 		self.camera = self.duck.camera

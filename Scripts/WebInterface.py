@@ -30,7 +30,7 @@ class LocalServer():
 	def stream(self):
 		settings = {'debug':True}
 		super(LocalServer,self).__init__()
-		CameraStream(self.duck)
+		CameraFeed(self.duck)
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
 		#This starts the camera stream for the duck, and users a pre-defined loop
