@@ -1,6 +1,6 @@
 #--------------------
 # Imports the camerefeed from the DuckCamera script
-from Scripts import Utilities , DuckCamera
+from Scripts import Utilities, DuckCamera
 #Import the utilitys script
 import time
 import os
