@@ -22,7 +22,7 @@ class LocalServer():
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
 
-		root = Utilities.set_root()
+		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Get root privlages on pi and then adjust paths to find the right files
 
