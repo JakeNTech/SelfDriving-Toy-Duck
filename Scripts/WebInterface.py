@@ -31,7 +31,7 @@ class LocalServer(tornado.web.Application):
 		self.handlers = [(r"/", IndexHandler),(r"/",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
 	def stream(self):
 		settings = {'debug':True}
-		super(LocalServer,self).__init__()
+		super(LocalServer,self).__init__(self.handlers)
 		CameraFeed(self.duck)
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
@@ -62,7 +62,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 				self.application.duck.log_and_move(directions)
 				# if the duck is in train mode it logs 
 			else: 
-				self.application.car.move(direction)
+				self.application.duck.move(direction)
 				#This makes it carry on as normal
 
 		#Stopping the duck
