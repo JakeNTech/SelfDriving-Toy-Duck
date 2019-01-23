@@ -26,6 +26,7 @@ class LocalServer(tornado.web.Application):
 
 		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
+		print(path)
 		#Get root privlages on pi and then adjust paths to find the right files
 
 		self.handlers = [(r"/", IndexHandler),(r"/",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
@@ -38,7 +39,7 @@ class LocalServer(tornado.web.Application):
 		#This starts the camera stream for the duck, and users a pre-defined loop
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("./index.html", port=self.application.port, mode=self.application.car.train_mode)
+		self.render("./WebServer/index.html", port=self.application.port, mode=self.application.car.train_mode)
 
 class ErrorHandler(tornado.web.RequestHandler):
 	def get(self):

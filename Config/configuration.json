@@ -4,7 +4,7 @@
 	"width":320,
 	"height":240,
 	"channels":3,
-	"port": 8090,
+	"port": 80,
 	"cookie": "SelfDrivingDuck",
 	"model":"/home/pi/Desktop/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
 	"train_data":"/home/pi/Desktop/Train",
