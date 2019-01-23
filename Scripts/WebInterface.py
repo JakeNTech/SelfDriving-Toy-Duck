@@ -38,7 +38,7 @@ class LocalServer(tornado.web.Application):
 		#This starts the camera stream for the duck, and users a pre-defined loop
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("/home/pi/SelfDriving-Toy-Duck/WebServer/index.html", port=self.application.port, mode=self.application.car.train_mode)
+		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.train_mode)
 
 class ErrorHandler(tornado.web.RequestHandler):
 	def get(self):
