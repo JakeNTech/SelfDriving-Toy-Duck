@@ -69,7 +69,7 @@ class DrivingDuck(object):
 		self.train_data = TrainData.TrainData(self.train_data_parameters)
 #---------Self Driving-----------	
 	def self_drive(self):
-		from DuckHead import SelfDrive
+		from Scripts.DuckHead import SelfDrive
 		SelfDriving(self)
 #---------Speed Settings---------	
 	def set_speed(self,_speed):
@@ -83,9 +83,9 @@ class DrivingDuck(object):
 			directions = _direction
 
 		for directions in directions:
-			GPIO.output(self.configuration[direction]["pin"],False)
-			
-		self.current_direction = direction
+			GPIO.output(self.configuration[directions]["pin"],False)
+
+		self.current_direction = directions
 #---------Move arround corners---	
 	def move(self, _direction):
 		Utilities.log("Move "+direction[0],2)

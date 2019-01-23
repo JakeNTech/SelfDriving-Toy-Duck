@@ -25,7 +25,7 @@ class DuckCamera(object):
 		self.picam = PiCamera()
 		self.picam.rotation = 180
 		self.picam.framerate = 15
-		self.picam.resoloution = (_parameters['width'], _parameters['height'])
+		self.picam.resolution = (_parameters['width'], _parameters['height'])
 		Camera.rotation = 180
 		# This sets the rotation and resoloutin of the camera.
 		time.sleep(2)
