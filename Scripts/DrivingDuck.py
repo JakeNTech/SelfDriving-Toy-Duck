@@ -20,11 +20,11 @@ class DrivingDuck(object):
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents\
-		self.width = _parameters['duck_params']['width']
-		self.height = _parameters['duck_params']['height']
-		self.verbose = _parameters['duck_params']['verbose']
-		self.configuration = _parameters['duck_params']['duck_configuration']
-		self.channels = _parameters['duck_params']['channels']
+		self.width = _parameters['duck_parameters']['width']
+		self.height = _parameters['duck_parameters']['height']
+		self.verbose = _parameters['duck_parameters']['verbose']
+		self.configuration = _parameters['duck_parameters']['duck_configuration']
+		self.channels = _parameters['duck_parameters']['channels']
 		self.default_speed = self.configuration['SPEED']['default']		
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
@@ -39,7 +39,7 @@ class DrivingDuck(object):
 	#-----------Self Driving-----------------
 		if('head_params' in _parameters):
 			from Scripts.DuckHead import DuckHead
-			self.brain = DuckHead(_parameters['head_params'])
+			self.brain = DuckHead(_parameters['head_parameters'])
 		# If Self Driving settings are set
 			#Load Thinking script
 			#Load configuration
