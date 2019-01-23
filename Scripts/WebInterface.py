@@ -16,7 +16,7 @@ import tornado.web
 
 class LocalServer():
 	#Class to help contain the code
-	def __init__(self,params,_duck):
+	def __init__(self,parameters,_duck):
 		Utilitys.log("Init. Server",1)
 		#logs the session start
 		self.duck= _duck

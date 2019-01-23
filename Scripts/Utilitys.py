@@ -50,7 +50,7 @@ def get_parameters(_train):
 	#the GIPO pins
 	#Below is setting the setings for the duck
 	params = {
-		"duck_params": {
+		"duck__parameters": {
 			'width': data['width'],
 			'height': data['height'],
 			'pigame': data["pigame"],
@@ -58,19 +58,19 @@ def get_parameters(_train):
 			'channels': data["channels"],
 			'duck_configuration': data['duck_configuration']
 		}
-		,'camera_params':{
+		,'camera__parameters':{
 			'path': data["train_data"],
 			'width': data['width'],
 			'height': data['height']
 		}
-		,'webserver_params':{
+		,'webserver__parameters':{
 			'port': data['port'],
 			'duck': None
 		}
 	}
 	if(_train):
 		# if the train mode is enabled then use thease parameaterts
-		params['train_data_params']= {
+		params['train_data_parameters']= {
 			'path': data['train_data'],
 			'width': data['width'],
 			'height': data['height'],
@@ -78,7 +78,7 @@ def get_parameters(_train):
 		}
 	else:
 		# if not in training mode set to use the model file
-		params['head_params'] = {
+		params['head_parameters'] = {
 			"model": data["model"]
 		}
 	return params

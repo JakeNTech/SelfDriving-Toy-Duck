@@ -30,7 +30,7 @@ class DrivingDuck(object):
 	#-----------Training Mode----------------
 		if('train_data_params' in _parameters):
 			import TrainData
-			self.train_data = TrainData.TrainData(_parameters['train_data_params'])
+			self.train_data = TrainData.TrainData(_parameters['train_data_parameters'])
 			self.train_mode = True
 		# If the train mode setting is set:
 			#import the training script
@@ -45,7 +45,7 @@ class DrivingDuck(object):
 			#Load configuration
 	#-----------Other bits-------------------
 		self.init_pins()
-		self.camera = DuckCamera.DuckCamera(_parameters['camera_params'])
+		self.camera = DuckCamera.DuckCamera(_parameters['camera_parameters'])
 	#-----------End of initalisation --------
 #Initalisation Functions
 #----------GPIO-------------------
@@ -65,8 +65,8 @@ class DrivingDuck(object):
 		self.stop()
 #---------Training---------------	
 	def train(self):
-		self.train_data_params['duck'] = self
-		self.train_data = TrainData.TrainData(self.train_data_params)
+		self.train_data_parameters['duck'] = self
+		self.train_data = TrainData.TrainData(self.train_data_parameters)
 #---------Self Driving-----------	
 	def self_drive(self):
 		from DuckHead import SelfDrive

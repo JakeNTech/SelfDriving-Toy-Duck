@@ -5,16 +5,16 @@ from Scripts import Utilitys, WebInterface, DrivingDuck
 #This is the script that ties is all togeter
 
 if(__name__ == "__main__"):
-	args = Utilitys.get_arguments()
+	arguments = Utilitys.get_arguments()
 	# This gets the arguments from the Utilitys script
 
-	perms = Utilitys.get_parameters(args.train)
+	parameters = Utilitys.get_parameters(arguments.train)
 	#Featches the perameaters
 
-	duck = DrivingDuck.DrivingDuck(perms)
+	duck = DrivingDuck.DrivingDuck(parameters)
 	# This gets the duck ready for ation
 
-	duck.webinterface = WebInterface.LocalServer(perms['webserver_params'], duck)
+	duck.webinterface = WebInterface.LocalServer(parameters['webserver_params'], duck)
 	# This starts to host the GUI
 
 	print('Quack! Ready to get the bread!')
