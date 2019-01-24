@@ -46,7 +46,6 @@ class ErrorHandler(tornado.web.RequestHandler):
 
 class WebSocket(tornado.websocket.WebSocketHandler):
 	 def loop(self):
-        """Sends camera images in an infinite loop."""
         try:
             self.write_message(base64.b64encode(self.application.duck.camera.last_img_bytes))
         except tornado.websocket.WebSocketClosedError:
