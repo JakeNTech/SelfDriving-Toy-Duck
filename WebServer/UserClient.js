@@ -56,8 +56,8 @@ var client = {
 		};
 		// to prevent oddness with a video stream on the users device, the video feed is converted too images, and this ensures
 		// that there is not issues with this
-		this.socket.onmessage = function(messsageEvent){
-			video.src = "data:image/jpeg;base64," + messageEvent.data;
+		this.socket.on_message = function(messsageEvent){
+			video.scr = "data:image/jpeg;base64," + messageEvent.data;
 		};
 	},
 	move: function(_direction){
