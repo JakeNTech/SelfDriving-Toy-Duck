@@ -17,27 +17,27 @@ function LoadTitle(){
 }
 function BindDPadButtons(_client){
 	$(' #MoveLeftButton').on({
-		"touchstart": function(){_client.move('LEFT')}
-		"mousedown": function(){_client.move('LEFT')}
-		"touchend": function(){_client.move('LEFT')}
+		"touchstart": function(){_client.move('LEFT')},
+		"mousedown": function(){_client.move('LEFT')},
+		"touchend": function(){_client.move('LEFT')},
 		"mouseup": function(){_client.move('LEFT')}
 	})
 	$(' #MoveRightButton ').on({
-		"touchstart": function(){_client.move('RIGHT')}
-		"mousedown": function(){_client.move('RIGHT')}
-		"touchend": function(){_client.move('RIGHT')}
+		"touchstart": function(){_client.move('RIGHT')},
+		"mousedown": function(){_client.move('RIGHT')},
+		"touchend": function(){_client.move('RIGHT')},
 		"mouseup": function(){_client.move('RIGHT')}
 	})
 	$(' #MoveBackButton').on({
-		"touchstart": function(){_client.move('BACKWARDS')}
-		"mousedown": function(){_client.move('BACKWARDS')}
-		"touchend": function(){_client.move('BACKWARDS')}
+		"touchstart": function(){_client.move('BACKWARDS')},
+		"mousedown": function(){_client.move('BACKWARDS')},
+		"touchend": function(){_client.move('BACKWARDS')},
 		"mouseup": function(){_client.move('BACKWARDS')}
 	})
 	$(' #MoveForwardButton').on({
-		"touchstart": function(){_client.move('FORWARD')}
-		"mousedown": function(){_client.move('FORWARD')}
-		"touchend": function(){_client.move('FORWARD')}
+		"touchstart": function(){_client.move('FORWARD')},
+		"mousedown": function(){_client.move('FORWARD')},
+		"touchend": function(){_client.move('FORWARD')},
 		"mouseup": function(){_client.move('FORWARD')}
 	})
 }
