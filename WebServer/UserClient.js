@@ -47,7 +47,7 @@ var client = {
 	//connects the users device to the open socket on the pi
 	connect: function (port,callback) {
 		var self = this, video = document.getElementById("video");
-		this.socket = new WebSocket("ws://" + window.location.hostname + ":" + port + "/WebSocket");
+        this.socket = new WebSocket("ws://" + window.location.hostname + ":" + port + "/websocket");
 		//The below askes for the stream once the contorler and PI are connected
 		this.socket.onopen = function(){
 			console.log("Connected!");
