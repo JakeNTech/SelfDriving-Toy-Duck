@@ -99,7 +99,7 @@ class DrivingDuck(object):
 			else:
 				self.set_speed(self.default_speed)
 			for directions in _directions:
-				GPIO.output(self.configuration[direction]["pin"],True)
+				GPIO.output(self.configuration[directions]["pin"],True)
 			self.current_direction = _directions
 #----------Logging Movement------	
 	def log_move(self,_direction):

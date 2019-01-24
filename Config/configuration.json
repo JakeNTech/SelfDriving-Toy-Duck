@@ -13,10 +13,10 @@
 	"pigame": "False",
 
 	"duck_configuration":{
-		"FORWARD": {"pin":15,"lable_code":0},
+		"FORWARD": {"pin":13,"lable_code":0},
 		"RIGHT": {"pin":7, "lable_code":1},
 		"LEFT": {"pin":11, "lable_code":2},
-		"BACKWARDS": {"pin":13, "lable_code":-1},
+		"BACKWARDS": {"pin":15, "lable_code":-1},
 		"SPEED": {"pin":16, "default":55}
 	}
 }
