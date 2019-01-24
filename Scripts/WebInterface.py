@@ -62,10 +62,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			# This set the direction to the variable message that is being passed across
 			if (message in ["LEFT","RIGHT"]):
 				direction = [message,"BACK"]
-				#If the user is pressing right or left the duck still needs to go forward
-			elif (self.application.duck.train):
-				self.application.duck.log_and_move(directions)
-				# if the duck is in train mode it logs 
+				#If the user is pressing right or left the duck still needs to go forward				# if the duck is in train mode it logs 
 			else: 
 				self.application.duck.move(direction)
 				#This makes it carry on as normal
