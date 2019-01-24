@@ -80,7 +80,7 @@ class DrivingDuck(object):
 			Utilities.log("Stopping",2)
 			directions = self.configuration
 		else:
-			directions = _direction
+			directions = _directions
 
 		for directions in directions:
 			GPIO.output(self.configuration[directions]["pin"],False)
@@ -98,18 +98,18 @@ class DrivingDuck(object):
 				self.set_speed(NewSpeed)
 			else:
 				self.set_speed(self.default_speed)
-			for directions in _direction:
-				GPIO.output(self.configuration[_direction]["pin"],True)
-			self.current_direction = _direction
+			for directions in _directions:
+				GPIO.output(self.configuration[_directions]["pin"],True)
+			self.current_direction = _directions
 #----------Logging Movement------	
 	def log_move(self,_direction):
 		if(self.train_mode):
-			self.train_data.log_train_data(_direction,self)
+			self.train_data.log_train_data(_directions,self)
 		else:
-			self.move(_direction)
+			self.move(_directions)
 		t = time.time()
 		if(self.log_photos):
-			self.camera.save_frame(_direction[0])
+			self.camera.save_frame(_directions[0])
 			t = Utilities.log('Saved images',2,t)
 #----------Getting the script to stop---	
 	def shutdown(self):
