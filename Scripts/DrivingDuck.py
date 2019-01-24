@@ -91,7 +91,7 @@ class DrivingDuck(object):
 		if (_directions != self.current_direction):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
-			if(_direction[0]!="FORWARD"):
+			if(_directions[0]!="FORWARD"):
 				NewSpeed = int(self.default_speed*2)
 				if (NewSpeed > 100): 
 					s = 100
