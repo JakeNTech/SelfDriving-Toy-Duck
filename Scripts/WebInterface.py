@@ -48,7 +48,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 	def on_message(self, message):
 		#This starts an infinate loop when its called up
 		if message == "read_camera":
-				self.camera_loop = PeriodicCallback()
+				self.camera_loop = PeriodicCallback(self.loop, 150)
 				self.camera_loop.start()
 				#This sets the camera to 15 Frames per second
 				# It also makes a loop that will keep the camera stream alive
