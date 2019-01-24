@@ -19,26 +19,26 @@ function BindDPadButtons(_client){
 	$(' #MoveLeftButton').on({
 		"touchstart": function(){_client.move('LEFT')},
 		"mousedown": function(){_client.move('LEFT')},
-		"touchend": function(){_client.move('LEFT')},
-		"mouseup": function(){_client.move('LEFT')}
+		"touchend": function(){_client.stop('LEFT')},
+		"mouseup": function(){_client.stop('LEFT')}
 	})
-	$(' #MoveRightButton ').on({
+	$(' #MoveRightButton').on({
 		"touchstart": function(){_client.move('RIGHT')},
 		"mousedown": function(){_client.move('RIGHT')},
-		"touchend": function(){_client.move('RIGHT')},
-		"mouseup": function(){_client.move('RIGHT')}
+		"touchend": function(){_client.stop('RIGHT')},
+		"mouseup": function(){_client.stop('RIGHT')}
 	})
-	$(' #MoveBackButton').on({
+	$(' #MoveBackwardsButton').on({
 		"touchstart": function(){_client.move('BACKWARDS')},
 		"mousedown": function(){_client.move('BACKWARDS')},
-		"touchend": function(){_client.move('BACKWARDS')},
-		"mouseup": function(){_client.move('BACKWARDS')}
+		"touchend": function(){_client.stop('BACKWARDS')},
+		"mouseup": function(){_client.stop('BACKWARDS')}
 	})
 	$(' #MoveForwardButton').on({
 		"touchstart": function(){_client.move('FORWARD')},
 		"mousedown": function(){_client.move('FORWARD')},
-		"touchend": function(){_client.move('FORWARD')},
-		"mouseup": function(){_client.move('FORWARD')}
+		"touchend": function(){_client.stop('FORWARD')},
+		"mouseup": function(){_client.stop('FORWARD')}
 	})
 }
 // The above is what sends the users button presses to the main script, there are diffrent methods as the user 

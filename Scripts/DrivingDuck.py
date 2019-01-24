@@ -37,7 +37,7 @@ class DrivingDuck(object):
 				#Load the settings
 				#Set train to true
 	#-----------Self Driving-----------------
-		if('head_params' in _parameters):
+		if('head_parameters' in _parameters):
 			from Scripts.DuckHead import DuckHead
 			self.brain = DuckHead(_parameters['head_parameters'])
 		# If Self Driving settings are set
