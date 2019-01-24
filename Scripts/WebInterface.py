@@ -48,7 +48,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 	def loop(self):
 			# This creates a loop, and excepts errors from the camera feed
 			try:
-				self.write_message(base64.b64encode(self.applicaiton.duck.camerea.last_img_bytes))
+				self.write_message(base64.b64encode(self.applicaiton.duck.camera.last_img_bytes))
 			except tornado.websocket.WebSocketClosedError:
 				self.camera_loop.stop()
 	def on_message(self, message):
