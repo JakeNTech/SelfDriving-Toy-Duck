@@ -53,7 +53,7 @@ class SelfDriving(object):
 				#Gets the images for processing
 				image = self.duck.camera.last_img
 				#Gets the predictions about the movement
-				direction = self.duck.brain.get_direction(image)
+				direction = self.duck.brain.GetDirections(image)
 				#If the direction has changed, change
 				if (direction != self.duck.current_direction):
 					self.duck.stop(self.duck.current_direction)
