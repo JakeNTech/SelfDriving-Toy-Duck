@@ -67,19 +67,9 @@
         </div>
         <!-- We have not got all the facy elements, time for the hard work -->
         <script>
-        	function toCheck(){
-        		//This is the javascript funciton to check to see if the user is sure about wanting to start self driving
-        		var X = confirm("You are about to run the self-driving elemet, do you wish to continue?");
-        		if (X==true){
-        			alert("Ok, Continuing")
-        		}
-        		else{
-        			alert("Operation canceled")
-        		}
-        	}
-        	LoadTitle();
-        	client.setMode('{{mode}}');
-        	client.connet({port});
-        </script>
+        	LoadTitle()
+        	client.setMode('{{mode}}')
+			client.connect({{port}})       
+ 		</script>
     </body>
 </hmtl>
