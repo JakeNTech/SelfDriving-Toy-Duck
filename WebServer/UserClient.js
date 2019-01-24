@@ -51,7 +51,7 @@ var client = {
 		//The below askes for the stream once the contorler and PI are connected
 		this.socket.onopen = function(){
 			console.log("Connected!");
-			self.CameraFeed();
+			self.readCamera();
 			BindDPadButtons(self)
 		};
 		// to prevent oddness with a video stream on the users device, the video feed is converted too images, and this ensures
