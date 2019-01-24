@@ -73,7 +73,7 @@ class DrivingDuck(object):
 		SelfDriving(self)
 #---------Speed Settings---------	
 	def set_speed(self,_speed):
-		self.speedChangeDutyCycle(_speed)
+		self.speed.ChangeDutyCycle(_speed)
 #--------Stoping the duck--------
 	def stop(self,_direction=[]):
 		if (len(_direction)==0):

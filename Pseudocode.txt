@@ -39,7 +39,7 @@
 	function(SelfDrive):
 		if SelfDriveButton = pressed:
 			button_text="quack"
-			boradcast = "Self drive" to Python
+			boradcast = "Start Self-Drive " to Python
 ----------------------------------------------------------------
 # Main python Code
 	Import all the other partial files

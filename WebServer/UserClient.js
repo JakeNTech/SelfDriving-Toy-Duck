@@ -4,8 +4,8 @@
 function toogleDpadButtons(){
 	var dpad_buttons = document.getElementsByClassName("d-button")
 	// This gets informatnion about the buttons forom the HTML page
-	for (var x=0; x<dpad_buttons.lenght; x++){
-		dpad_buttons[x].disabled = !dpad_buttons[x].disabled
+	for (var i=0; i<dpad_buttons.lenght; i++){
+		dpad_buttons[i].disabled = !dpad_buttons[i].disabled
 		//This deactivates the buttons
 	}
 }
@@ -104,7 +104,7 @@ var client = {
 		}
 		else{
 			$('#action-button')
-				.text('Self Drive')
+				.text('Start Self-Drive ')
 				.click(function(){
 					client.self_drive()
 			})
