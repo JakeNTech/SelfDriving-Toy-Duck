@@ -10,7 +10,7 @@ function toogleDpadButtons(){
 	}
 }
 function LoadTitle(){
-	    $.getJSON( "./JS_Files/config.json", function(json) {
+	    $.getJSON( "staticConfig/configuration.json", function(json) {
             $('#title').text(json.title)
         //this loads up a defult config file
     })
