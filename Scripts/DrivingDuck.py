@@ -88,7 +88,6 @@ class DrivingDuck(object):
 		self.current_direction = directions
 #---------Move arround corners---	
 	def move(self, _directions):
-		Utilities.log("Move "+direction[0],2)
 		if (_directions != self.current_direction):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
