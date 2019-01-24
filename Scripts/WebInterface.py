@@ -45,7 +45,7 @@ class ErrorHandler(tornado.web.RequestHandler):
 		self.send_error(status_code=403)
 
 class WebSocket(tornado.websocket.WebSocketHandler):
-	 def loop(self):
+	def loop(self):
         try:
             self.write_message(base64.b64encode(self.application.duck.camera.last_img_bytes))
         except tornado.websocket.WebSocketClosedError:
