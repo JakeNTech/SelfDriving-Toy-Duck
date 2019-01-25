@@ -76,7 +76,7 @@ class DrivingDuck(object):
 		self.speed.ChangeDutyCycle(_speed)
 #--------Stoping the duck--------
 	def stop(self,_direction=[]):
-		if (len(_direction)==0):
+		if (len(_directions)==0):
 			Utilities.log("Stopping",2)
 			directions = self.configuration
 		else:
@@ -85,7 +85,7 @@ class DrivingDuck(object):
 		for directions in directions:
 			GPIO.output(self.configuration[directions]["pin"],False)
 
-		self.current_direction = directions
+		self.current_directions = directions
 #---------Move arround corners---	
 	def move(self, _directions):
 		if (_directions != self.current_direction):
