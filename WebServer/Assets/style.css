@@ -74,12 +74,38 @@ button:disabled{
     height: 100px;
 }
 
-
 /** Directional arrows based on https://www.w3schools.com/howto/howto_css_arrows.asp**/
 .DirectionButton {
     height: 70px;
     width: 85px;
     font-size: 16px;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
 
 
