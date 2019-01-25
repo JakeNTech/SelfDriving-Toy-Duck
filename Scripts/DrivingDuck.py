@@ -24,7 +24,6 @@ class DrivingDuck(object):
 		self.height = _parameters['duck_parameters']['height']
 		self.verbose = _parameters['duck_parameters']['verbose']
 		self.configuration = _parameters['duck_parameters']['duck_parameters']
-		self.configuration = _parameters['duck_parameters']['duck_configuration']
 		self.channels = _parameters['duck_parameters']['channels']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
