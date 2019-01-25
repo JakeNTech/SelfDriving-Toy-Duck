@@ -69,7 +69,7 @@ class DrivingDuck(object):
 		self.train_data = TrainData.TrainData(self.train_data_parameters)
 #---------Self Driving-----------	
 	def self_drive(self):
-		from Scripts.DuckHead import SelfDrive
+		from Scripts.DuckHead import SelfDriving
 		SelfDriving(self)
 #--------Stoping the duck--------
 	def stop(self,_directions=[]):
