@@ -46,7 +46,7 @@ class SelfDriving(object):
 		self.duck = _duck
 		thread = threading.Thread(target=self.run, args=())
 		thread.deamon = True
-		tread.start()
+		thread.start()
 	def run(self):
 		with self.duck.brain.graph.as_default():
 			while (self.duck.drive):
