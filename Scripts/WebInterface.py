@@ -57,11 +57,11 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 				self.camera_loop.start()
 				#This sets the camera to 15 Frames per second
 				# It also makes a loop that will keep the camera stream alive
-		elif (message in ["BACKWARDS","FORWARD","LEFT","RIGHT"]):
+		elif (message in {"BACKWARDS","FORWARD","LEFT","RIGHT"}):
 			direction = [message]
 			# This set the direction to the variable message that is being passed across
 			if (message in ["LEFT","RIGHT"]):
-				direction = [message,"FORWARD"]
+				direction = [message,"BACKWARDS"]
 				#If the user is pressing right or left the duck still needs to go forward				# if the duck is in train mode it logs 
 			else: 
 				self.application.duck.move(direction)

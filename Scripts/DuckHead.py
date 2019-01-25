@@ -37,6 +37,8 @@ class DuckHead(object):
 			direction = ["LEFT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
+		else:
+			print("Error")
 		return direction
 #------------------Waddle-----------------------------
 class SelfDriving(object):
