@@ -1,7 +1,7 @@
 /*global $, WebSocket, console, window, document*/
 "use strict";
 //This is the Java file that connects the GUI to the Pi
-function toogleDpadButtons(){
+function toggleDpadButtons(){
 	var dpad_buttons = document.getElementsByClassName("d-button")
 	// This gets informatnion about the buttons forom the HTML page
 	for (var i=0; i<dpad_buttons.lenght; i++){
@@ -107,7 +107,7 @@ var client = {
 				.text('Start Self-Drive ')
 				.click(function(){
 					client.self_drive()
-			})
+				})
 		}
 	}
 };
