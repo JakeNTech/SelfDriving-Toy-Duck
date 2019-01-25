@@ -26,7 +26,6 @@ class DrivingDuck(object):
 		self.verbose = _parameters['duck_parameters']['verbose']
 		self.configuration = _parameters['duck_parameters']['duck_configuration']
 		self.channels = _parameters['duck_parameters']['channels']
-		self.default_speed = self.configuration['SPEED']['default']		
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
 		if('train_data_params' in _parameters):
@@ -59,8 +58,8 @@ class DrivingDuck(object):
 		for direction in self.configuration:
 			GPIO.setup(self.configuration[direction]['pin'],GPIO.OUT)
 		#Sets Defult speed
-		self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
-		self.speed.start(self.configuration["SPEED"]['default'])
+	#	self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
+	#	self.speed.start(self.configuration["SPEED"]['default'])
 		#Sets all the pins to false to prevent uncontroled movement, pins have
 		#to be on for settings
 		self.stop()
@@ -72,9 +71,6 @@ class DrivingDuck(object):
 	def self_drive(self):
 		from Scripts.DuckHead import SelfDrive
 		SelfDriving(self)
-#---------Speed Settings---------	
-	def set_speed(self,_speed):
-		self.speed.ChangeDutyCycle(_speed)
 #--------Stoping the duck--------
 	def stop(self,_directions=[]):
 		if (len(_directions)==0):
@@ -92,13 +88,6 @@ class DrivingDuck(object):
 		if (_directions != self.current_directions):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
-			if(_directions[0]!="FORWARD"):
-				NewSpeed = int(self.default_speed*1.2)
-				if (NewSpeed > 100): 
-					NewSpeed = 100
-				self.set_speed(NewSpeed)
-			else:
-				self.set_speed(self.default_speed)
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.current_directions = _directions
@@ -118,4 +107,6 @@ class DrivingDuck(object):
 		GPIO.cleanup()
 		if(self.train_data):
 			self.train_data.save()
+		else:
+			exit()
 #---------END SCRIPT--------------------

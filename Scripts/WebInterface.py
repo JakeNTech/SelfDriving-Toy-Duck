@@ -2,6 +2,7 @@
 # Imports the camerefeed from the DuckCamera script
 from Scripts import Utilities
 from Scripts.DuckCamera import CameraFeed
+from Scripts import DrivingDuck
 #Import the utilitys script
 import time
 import os
@@ -72,7 +73,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 		elif (message[5:] in ["BACKWARDS","FORWARD","RIGHT","LEFT"]):
 			self.application.duck.stop()
 			#If user has pressed the Start Self-Drive  button
-		elif (message == 'self_drive'):
+		elif (message == 'Self-Drive'):
 			Utilities.log("\nDrive, "+self.application.duck.name + "!",1)
 			self.application.duck.drive = True
 			self.application.duck.self_drive()
@@ -85,6 +86,9 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			Utilities.log("Saving frames")
 			self.application.duck.traindata.save()
 			self.application.duck.drive = False
-		# Error catching loop
+		# If the user presses shutdown
+		elif (message=="Shutdown"):
+			DrivingDuck.shutdown()
+		#Error Catching
 		else:
 			Utilities.log("An unnexpected error cooured, from:" + message)

@@ -76,7 +76,7 @@ var client = {
 		if (selfDriveButton.innerText == "Start Self-Drive"){
 			selfDriveButton.innterText = "Quack!"
 			toggleDpadButtons()
-			this.socket.send("manual");
+			this.socket.send("Self-Drive");
 		}
 		else{
 			selfDriveButton.innterText = "Start Self-Drive"
