@@ -2,7 +2,7 @@
 "use strict";
 //This is the Java file that connects the GUI to the Pi
 function toggleDpadButtons(){
-	var dpad_buttons = document.getElementsByClassName("d-button")
+	var dpad_buttons = document.getElementsByClassName("DirectionButton")
 	// This gets informatnion about the buttons forom the HTML page
 	for (var i=0; i<dpad_buttons.lenght; i++){
 		dpad_buttons[i].disabled = !dpad_buttons[i].disabled
