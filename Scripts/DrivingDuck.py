@@ -1,3 +1,4 @@
+
 #Self Driving (rc) duck
 #A-Level Project
 #30-12-2019
@@ -16,7 +17,7 @@ class DrivingDuck(object):
 		self.drive = False
 		self.log_photos = False
 		self.train_mode = False
-		self.current_direction = []
+		self.current_directions = []
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents\
@@ -75,7 +76,7 @@ class DrivingDuck(object):
 	def set_speed(self,_speed):
 		self.speed.ChangeDutyCycle(_speed)
 #--------Stoping the duck--------
-	def stop(self,_direction=[]):
+	def stop(self,_directions=[]):
 		if (len(_directions)==0):
 			Utilities.log("Stopping",2)
 			directions = self.configuration
@@ -88,7 +89,7 @@ class DrivingDuck(object):
 		self.current_directions = directions
 #---------Move arround corners---	
 	def move(self, _directions):
-		if (_directions != self.current_direction):
+		if (_directions != self.current_directions):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
 			if(_directions[0]!="FORWARD"):
@@ -100,9 +101,9 @@ class DrivingDuck(object):
 				self.set_speed(self.default_speed)
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
-			self.current_direction = _directions
+			self.current_directions = _directions
 #----------Logging Movement------	
-	def log_move(self,_direction):
+	def log_move(self,_directions):
 		if(self.train_mode):
 			self.train_data.log_train_data(_directions,self)
 		else:

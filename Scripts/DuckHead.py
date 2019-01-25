@@ -26,20 +26,20 @@ class DuckHead(object):
 			if value > max_value:
 				max_value = value
 				move = idx
-		direction = []
+		directions = []
 		if move == 0:
-			direction = ["FORWARD"]
+			directions = ["FORWARD"]
 		elif move == 1:
-			direction = ["RIGHT","FORWARD"]
+			directions = ["RIGHT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		elif move == 2:
-			direction = ["LEFT","FORWARD"]
+			directions = ["LEFT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		else:
 			print("Error")
-		return direction
+		return directions
 #------------------Waddle-----------------------------
 class SelfDriving(object):
 	def __init__(self,_duck):
@@ -53,10 +53,10 @@ class SelfDriving(object):
 				#Gets the images for processing
 				image = self.duck.camera.last_img
 				#Gets the predictions about the movement
-				direction = self.duck.brain.GetDirections(image)
+				directions = self.duck.brain.GetDirections(image)
 				#If the direction has changed, change
-				if (direction != self.duck.current_direction):
-					self.duck.stop(self.duck.current_direction)
-					self.duck.move(direction)
-				Utilities.log("Waddeling "+direction[0],2)
+				if (directions != self.duck.current_directions):
+					self.duck.stop(self.duck.current_directions)
+					self.duck.move(directions)
+				Utilities.log("Waddeling "+directions[0],2)
 		self.duck.stop()
