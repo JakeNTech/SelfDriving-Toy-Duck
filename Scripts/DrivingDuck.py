@@ -1,4 +1,3 @@
-
 #Self Driving (rc) duck
 #A-Level Project
 #30-12-2019
@@ -24,6 +23,7 @@ class DrivingDuck(object):
 		self.width = _parameters['duck_parameters']['width']
 		self.height = _parameters['duck_parameters']['height']
 		self.verbose = _parameters['duck_parameters']['verbose']
+		self.configuration = _parameters['duck_parameters']['duck_parameters']
 		self.configuration = _parameters['duck_parameters']['duck_configuration']
 		self.channels = _parameters['duck_parameters']['channels']
 		#Initailises all the parameatres 
