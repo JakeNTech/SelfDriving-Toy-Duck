@@ -48,12 +48,12 @@ class SelfDriving(object):
 		thread.deamon = True
 		thread.start()
 	def run(self):
-		with self.duck.head.graph.as_default():
+		with self.duck.brain.graph.as_default():
 			while (self.duck.drive):
 				#Gets the images for processing
 				image = self.duck.camera.last_img
 				#Gets the predictions about the movement
-				directions = self.duck.head.GetDirections(image)
+				directions = self.duck.brain.GetDirections(image)
 				#If the direction has changed, change
 				if (directions != self.duck.current_directions):
 					self.duck.stop(self.duck.current_directions)
