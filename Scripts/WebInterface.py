@@ -74,7 +74,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.application.duck.stop()
 			#If user has pressed the Start Self-Drive  button
 		elif (message == 'Self-Drive'):
-			Utilities.log("\nDrive, "+self.application.duck.name + "!",1)
+			Utilities.log("\n Self Drive!",1)
 			self.application.duck.drive = True
 			self.application.duck.self_drive()
 			# If the user selects to contol the duck manualy
