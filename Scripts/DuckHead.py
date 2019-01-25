@@ -14,7 +14,7 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,parameaters):
 		Utilities.log("Initialisation model",1)
-		self.model = load_model(_params['model'])
+		self.model = load_model(_parameters['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
@@ -48,12 +48,12 @@ class SelfDriving(object):
 		thread.deamon = True
 		thread.start()
 	def run(self):
-		with self.duck.brain.graph.as_default():
+		with self.duck.head.graph.as_default():
 			while (self.duck.drive):
 				#Gets the images for processing
 				image = self.duck.camera.last_img
 				#Gets the predictions about the movement
-				directions = self.duck.brain.GetDirections(image)
+				directions = self.duck.head.GetDirections(image)
 				#If the direction has changed, change
 				if (directions != self.duck.current_directions):
 					self.duck.stop(self.duck.current_directions)
