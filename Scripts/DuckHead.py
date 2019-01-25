@@ -12,7 +12,7 @@ from Scripts import Utilities
 #imports the Utilities script
 #------------------------Predictions---------------------
 class DuckHead(object):
-	def __init__(self,parameters):
+	def __init__(self,_parameters):
 		Utilities.log("Initialisation model",1)
 		self.model = load_model(_parameters['model'])
 		self.graph = tensorflow.get_defult_graph()
