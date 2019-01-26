@@ -1,3 +1,4 @@
+
 #--------------------
 # Imports the camerefeed from the DuckCamera script
 from Scripts import Utilities
@@ -63,7 +64,8 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			# This set the direction to the variable message that is being passed across
 			if (message in ["LEFT","RIGHT"]):
 				directions = [message,"FORWARD"]
-				self.application.duck.move(directions)
+			elif(self.application.duck.train_mode):
+				xself.application.duck.log_move(directions)
 				#If the user is pressing right or left the duck still needs to go forward				# if the duck is in train mode it logs 
 			else: 
 				self.application.duck.move(directions)
