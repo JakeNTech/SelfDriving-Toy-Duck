@@ -16,8 +16,8 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model")
-		with open(_parameters['model'], 'r') as f:
-			NewFile = pickle.load(f, encoding='latin1')
+		with open(_parameters['model'], 'rb') as f:
+			NewFile = pickle.load(f, encoding='latin1', errors='ignore')
 		self.model = NewFile
 		self.graph = tensorflow.get_default_graph()
 		#Set the parameaters for the following script
