@@ -8,7 +8,7 @@
 	
 	"port": 8090,
 	"cookie": "SelfDrivingDuck",
-	"model":"/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
+	"model":"./Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
 	"train_data":"/home/pi/Train",
 	"pigame": "False",
 
