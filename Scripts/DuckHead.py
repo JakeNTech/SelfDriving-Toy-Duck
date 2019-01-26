@@ -15,10 +15,8 @@ from Scripts import Utilities
 #------------------------Predictions---------------------
 class DuckHead(object):
 	def __init__(self,_parameters):
-		Utilities.log("Initialisation model",1)
-		with open(_parameters['model'],'rb') as pickle_file:
-			content = pickle.load(pickle_file)
-		self.model = content
+		Utilities.log("Initialisation model")
+		self.model = keras.model.load_model(_parameters['model'])
 		self.graph = tensorflow.get_default_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
