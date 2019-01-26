@@ -3,10 +3,10 @@
 #1-1-2019 (Happy New Year!)
 import time
 import threading
-import tensorflow as tf
 import keras.backend.tensorflow_backend
 from keras.backend import clear_session
 from keras.models import load_model
+import tensorflow as tf
 import h5py
 import pickle
 #The above imports the python modules
