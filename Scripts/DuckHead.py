@@ -3,7 +3,7 @@
 #1-1-2019 (Happy New Year!)
 import time
 import threading
-import tensorflow
+import tensorflow as tf
 import keras.backend.tensorflow_backend
 from keras.backend import clear_session
 from keras.models import load_model
@@ -16,10 +16,11 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model")
-		with open(_parameters['model'], 'rb') as f:
-			NewFile = pickle.load(f, encoding='latin1', errors='ignore')
-		self.model = NewFile
-		self.graph = tensorflow.get_default_graph()
+		#with open(_parameters['model'], 'rb') as f:
+		#	NewFile = pickle.load(f, encoding='latin1', errors='ignore')
+		#self.model = NewFile
+		self.model = load_model(_parameters['model'])
+		self.graph = tf.get_default_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
 		x = time.time()
