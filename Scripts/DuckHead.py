@@ -8,6 +8,7 @@ from keras.backend import clear_session
 from keras.models import load_model
 import tensorflow 
 import h5py
+import marshal
 #The above imports the python modules
 from Scripts import Utilities
 #imports the Utilities script
@@ -15,7 +16,7 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model",1)
-		self.model = load_model(_parameters['model'])
+		self.model = marshal.load(_parameters['model'])
 		self.graph = tensorflow.get_default_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
