@@ -16,7 +16,11 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model")
+<<<<<<< HEAD
 		self.model = pickle.loads(_parameters['model'])
+=======
+		self.model = keras.models.load_model(_parameters['model'])
+>>>>>>> parent of fcf3304... Update DuckHead.py
 		self.graph = tensorflow.get_default_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
