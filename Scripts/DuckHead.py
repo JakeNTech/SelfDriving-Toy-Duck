@@ -8,7 +8,7 @@ from keras.backend import clear_session
 from keras.models import load_model
 import tensorflow 
 import h5py
-import marshal
+import pickle
 #The above imports the python modules
 from Scripts import Utilities
 #imports the Utilities script
@@ -16,7 +16,7 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model",1)
-		self.model = marshal.load("/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model")
+		self.model = pickle.load("/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model")
 		self.graph = tensorflow.get_default_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
