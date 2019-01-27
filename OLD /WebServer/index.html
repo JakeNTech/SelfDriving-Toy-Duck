@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Declares HTML document, its not really needed but is noce to have-->
+<html>
+	<!-- Declares start of HTML markup -->
+	<head>
+		<meta charset="utf-8">
+       	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!--Sets below into the header of the site and not on the page -->
+		<title> Self-Driving duck</title>
+		<!-- set tab name, this will only be seen if the user is on a PC -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Makes sure page fits onto screen dynamically -->
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC" rel="stylesheet">
+		<!-- The above is to use a font from google rather then a defult one -->
+		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+		<!-- This is a much more advanced CSS style sheet then the one we have made, its still needed, this is for the alingment of all the elements -->
+		<link href="static/WebServer/Assets/style.css" rel="stylesheet" type="text/css"/>
+		<!-- This is the custom CSS sheet -->
+		<script src="static/WebServer/Assets/jquery-3.3.1.min.js"></script>
+		<!-- This is the link to the defult java file -->
+		<link rel="shortcut icon" href="static/WebServer/Images/Duck(16X16).png"/>
+		<!-- This is the favicon for the tab bar..It just makes it look nice when on a desktop browser-->
+	</head>
+	<!-- End of header, start of Body -->
+	<body>
+        <script src="static/WebServer/UserClient.js" type="text/javascript"></script>
+		<br>
+		<div class="container">
+			<!--- This is a contanier, it holds all the CSS stuff, this will mean it looks facny -->
+				<div class="col-xs-11">
+					<h1 id="title"> </h1>
+					<p>The self-driving duck interface</p>
+					<!--- The page heading -->
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-xs-15">
+					<img id="video"></img>
+					<!-- this is the container for the video stream -->
+				</div>
+			</div>
+			<br>
+			<div class="row">
+            	<div class="col-xs-15 text-center">
+            		<button id="action-button"> Start Self-Drive </i> </button>
+					<!-- This is for the self-drive button -->
+
+            	</div>
+            </div>
+            <br>
+			<div class="row">
+				<div class="col-xs-15 text-center">
+					<button id="MoveForwardButton" class ="DirectionButton"> <i class="up"> </i> </button>
+					<!-- This is for the forward button -->
+				</div>
+			</div>
+            <div class="row">
+                <div class="col-xs-6 text-center">
+                    <button id="MoveLeftButton" class="DirectionButton"> <i class="left"></i> </button>
+					<!-- This is for the left button -->
+                </div>
+                <div class="col-xs-6 text-center">
+                    <button id="MoveRightButton" class="DirectionButton"> <i class="right"> </i> </button>
+					<!-- This is for the right button -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-15 text-center">
+                    <button id="MoveBackwardsButton" class="DirectionButton" > <i class="down"> </i> </button>
+					<!-- This is for the reverse button -->                
+                </div>
+            </div>
+        </div>
+        <!-- We have not got all the facy elements, time for the hard work -->
+        <script>
+        	LoadTitle()
+        	client.setMode('{{mode}}')
+			client.connect({{port}})       
+ 		</script>
+    </body>
+</hmtl>

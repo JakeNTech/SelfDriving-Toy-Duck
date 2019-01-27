@@ -6,59 +6,55 @@ import threading
 import keras.backend.tensorflow_backend
 from keras.backend import clear_session
 from keras.models import load_model
-import tensorflow as tf
-import h5py
-import pickle
+import tensorflow
 #The above imports the python modules
 from Scripts import Utilities
 #imports the Utilities script
 #------------------------Predictions---------------------
 class DuckHead(object):
-	def __init__(self,-parameters):
+	def __init__(self,parameaters):
 		Utilities.log("Initialisation model",1)
-		self.model = load_model(_parameters['model'])
+		self.model = load_model(_params['model'])
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
 		x = time.time()
-		resoloution = self.model.predict(_image, batch_size=1)
+		resoloution = self.model.preditct(_image, batch_size=1)
 		x = Utilities.log("Model Predict",3,x)
 		max_value = 0
 		for idx,val in enumerate(resoloution[0]):
 			if value > max_value:
 				max_value = value
 				move = idx
-		directions = []
+		direction = []
 		if move == 0:
-			directions = ["FORWARD"]
+			direction = ["FORWARD"]
 		elif move == 1:
-			directions = ["RIGHT","FORWARD"]
+			direction = ["RIGHT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		elif move == 2:
-			directions = ["LEFT","FORWARD"]
+			direction = ["LEFT","FORWARD"]
 			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
-		else:
-			print("Error")
-		return directions
+		return direction
 #------------------Waddle-----------------------------
 class SelfDriving(object):
 	def __init__(self,_duck):
 		self.duck = _duck
 		thread = threading.Thread(target=self.run, args=())
 		thread.deamon = True
-		thread.start()
+		tread.start()
 	def run(self):
-		with self.duck.head.graph.as_default():
+		with self.duck.brain.graph.as_default():
 			while (self.duck.drive):
 				#Gets the images for processing
 				image = self.duck.camera.last_img
 				#Gets the predictions about the movement
-				directions = self.duck.head.GetDirections(image)
+				direction = self.duck.brain.GetDirections(image)
 				#If the direction has changed, change
-				if (directions != self.duck.current_directions):
-					self.duck.stop(self.duck.current_directions)
-					self.duck.move(directions)
-				Utilities.log("Waddeling "+directions[0],2)
+				if (direction != self.duck.current_direction):
+					self.duck.stop(self.duck.current_direction)
+					self.duck.move(direction)
+				Utilities.log("Waddeling "+direction[0],2)
 		self.duck.stop()
