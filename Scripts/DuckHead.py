@@ -16,10 +16,10 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model")
-		#with open(_parameters['model'], 'rb') as f:
-		#	NewFile = pickle.load(f, encoding='latin1', errors='ignore')
-		#self.model = NewFile
-		self.model = load_model(_parameters['model'])
+		with open(_parameters['model'], 'rb') as f:
+			NewFile = pickle.load(f, errors='ignore')
+		self.model = NewFile
+		#self.model = load_model(_parameters['model'])
 		self.graph = tf.get_default_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
