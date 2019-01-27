@@ -21,6 +21,10 @@ class DuckHead(object):
 		self.model = NewFile
 		#self.model = load_model(_parameters['model'])
 		self.graph = tf.get_default_graph()
+	def __init__(self,parameters):
+		Utilities.log("Initialisation model",1)
+		self.model = load_model(_parameters['model'])
+		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
 		x = time.time()
