@@ -87,7 +87,6 @@ class DrivingDuck(object):
 		self.current_directions = directions
 #---------Move arround corners---	
 	def move(self, _directions):
-		Utilities.log("Move "+directions[0])
 		if (_directions != self.current_directions):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
@@ -101,6 +100,7 @@ class DrivingDuck(object):
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.current_directions = _directions
+		Utilities.log("Move "+directions[0])
 #----------Logging Movement------	
 	def log_move(self,_directions):
 		if(self.train_mode):
