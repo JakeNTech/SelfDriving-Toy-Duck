@@ -52,11 +52,11 @@ class DrivingDuck(object):
 	def init_pins(self):
 		# Hat Settigns
 		# GPIO contols
-		Utilities.log("Initalisation. Pins",1)
+		Utilities.log("Initalisation. Pins")
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
 		for direction in self.configuration:
-			GPIO.setup(self.configuration[directions]['pin'],GPIO.OUT)
+			GPIO.setup(self.configuration[direction]['pin'],GPIO.OUT)
 		#Sets Defult speed
 		self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
 		self.speed.start(self.configuration["SPEED"]['default'])
@@ -87,6 +87,7 @@ class DrivingDuck(object):
 		self.current_directions = directions
 #---------Move arround corners---	
 	def move(self, _directions):
+		Utilities.log("Move "+directions[0])
 		if (_directions != self.current_directions):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
