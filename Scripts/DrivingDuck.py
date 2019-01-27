@@ -25,6 +25,7 @@ class DrivingDuck(object):
 		self.verbose = _parameters['duck_parameters']['verbose']
 		self.configuration = _parameters['duck_parameters']['duck_configuration']
 		self.channels = _parameters['duck_parameters']['channels']
+		self.defaultspeed = self.configuration['SPEED']['default']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
 		if('train_data_params' in _parameters):
@@ -57,11 +58,13 @@ class DrivingDuck(object):
 		for direction in self.configuration:
 			GPIO.setup(self.configuration[direction]['pin'],GPIO.OUT)
 		#Sets Defult speed
-	#	self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
-	#	self.speed.start(self.configuration["SPEED"]['default'])
+		self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
+		self.speed.start(self.configuration["SPEED"]['default'])
 		#Sets all the pins to false to prevent uncontroled movement, pins have
 		#to be on for settings
 		self.stop()
+	def setspeed(self,_speed):
+		self.speed.ChangeDutyCycle(_speed)
 #---------Training---------------	
 	def train(self):
 		self.train_data_parameters['duck'] = self
@@ -87,9 +90,16 @@ class DrivingDuck(object):
 		if (_directions != self.current_directions):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
+			if (_directions[0] != 'FORWARD'):
+				NewSpeed = int(self.defaultspeed*2)
+				if (NewSpeed > 100):
+					NewSpeed = 100
+					self.setspeed(NewSpeed)
+				else:
+					self.setspeed(self.defaultspeed)
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
-			self.current_directions = _directions
+			self.ø = _directions
 #----------Logging Movement------	
 	def log_move(self,_directions):
 		if(self.train_mode):
