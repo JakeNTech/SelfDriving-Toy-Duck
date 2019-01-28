@@ -79,7 +79,7 @@ var client = {
 			this.socket.send("Self-Drive");
 		}
 		else{
-			selfDriveButton.innterText = "Start Self-Drive"
+			selfDriveButton.innterText = "Quack!"
 			toggleDpadButtons()
 			this.socket.send("manual");
 		// This changes the text in the button for self driving, it also notifys the pi
