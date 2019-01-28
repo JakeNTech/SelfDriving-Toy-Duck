@@ -18,7 +18,7 @@ def log(_message,_ident=0,_time=0):
 			units = "h"
 		else:
 			units = "s"
-		print(("%s %s. Time: %s %s ")%(indent,_message,ti,unit))
+		print(("%s %s. Time: %s %s ")%(indent,_message,ti,units))
 # The above function is for making the log, printing it to the console,
 #Indents, prints the message, and then the time and the unit of time
 def wait(_time):
