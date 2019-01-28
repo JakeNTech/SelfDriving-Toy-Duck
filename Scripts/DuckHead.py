@@ -27,10 +27,10 @@ class DuckHead(object):
 		x = time.time()
 		resoloution = self.model.predict(_image, batch_size=1)
 		x = Utilities.log("Model Predict",3,x)
-		max_value = 0
+		max_val = 0
 		for idx,val in enumerate(resoloution[0]):
 			if val > max_value:
-				max_value = val
+				max_val = val
 				move = idx
 		directions = []
 		if move == 0:
