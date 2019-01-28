@@ -18,7 +18,7 @@ class DuckHead(object):
 		Utilities.log("Initialisation model",1)
 		#self.model = load_model(_parameters['model'])
 		with open(_parameters['model'],'rb')as file:
-			NewFile = pickle.load(file)
+			NewFile = Unpickler(file).load()
 		self.model = NewFile
 		self.graph = tensorflow.get_defult_graph()
 		#Set the parameaters for the following script
