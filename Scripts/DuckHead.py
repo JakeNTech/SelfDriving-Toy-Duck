@@ -16,7 +16,9 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model",1)
-		self.model = load_model(_parameters['model'])
+		path = _parameters['model']
+		path = str(path)
+		self.model = load_model(path)
 		#with open(_parameters['model'],'rb')as file:
 		#	NewFile = Unpickler(file).load()
 		#self.model = NewFile
