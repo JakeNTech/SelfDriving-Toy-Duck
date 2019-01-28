@@ -21,7 +21,7 @@ class DuckHead(object):
 		#with open(_parameters['model'],'rb')as file:
 		#	NewFile = Unpickler(file).load()
 		#self.model = NewFile
-		self.graph = tensorflow.get_defult_graph()
+		self.graph = tf.get_defult_graph()
 		#Set the parameaters for the following script
 	def GetDirections(self,_image):
 		x = time.time()
