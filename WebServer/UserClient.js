@@ -4,7 +4,7 @@
 function toggleDpadButtons(){
 	var dpad_buttons = document.getElementsByClassName("DirectionButton")
 	// This gets informatnion about the buttons forom the HTML page
-	for (var i=0; i<dpad_buttons.lenght; i++){
+	for (var i=0 ; i< dpad_buttons.lenght; i++){
 		dpad_buttons[i].disabled = !dpad_buttons[i].disabled
 		//This deactivates the buttons
 	}
@@ -79,7 +79,7 @@ var client = {
 			this.socket.send("Self-Drive");
 		}
 		else{
-			selfDriveButton.innterText = "Start Self-Drive!"
+			selfDriveButton.innerText = "Start Self-Drive!"
 			toggleDpadButtons()
 			this.socket.send("manual");
 		// This changes the text in the button for self driving, it also notifys the pi
