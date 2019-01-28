@@ -77,8 +77,9 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.application.duck.self_drive()
 			# If the user selects to contol the duck manualy
 		elif (message=='manual'):
-			Utilities.log("Manual Contol",1)
+			Utilities.log("Manual Contol")
 			self.application.duck.drive = False
+			self.application.duck.stop()
 			#If the user wants to save the frames of the camera
 		elif (message=='save_frames'):
 			Utilities.log("Saving frames")
