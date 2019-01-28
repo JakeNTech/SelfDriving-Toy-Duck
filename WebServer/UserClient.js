@@ -73,13 +73,13 @@ var client = {
 	self_drive: function(){
 		console.log("Self_Driving funcion called")
 		var selfDriveButton = document.getElementById("action-button");
-		if (selfDriveButton.innerText == "Start Self-Drive"){
-			selfDriveButton.innterText = "Quack!"
+		if (selfDriveButton.innerText == "Start Self-Drive!"){
+			selfDriveButton.innerText = "Quack!"
 			toggleDpadButtons()
 			this.socket.send("Self-Drive");
 		}
 		else{
-			selfDriveButton.innterText = "Quack!"
+			selfDriveButton.innterText = "Start Self-Drive!"
 			toggleDpadButtons()
 			this.socket.send("manual");
 		// This changes the text in the button for self driving, it also notifys the pi
