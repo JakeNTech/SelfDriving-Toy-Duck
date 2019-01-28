@@ -29,7 +29,7 @@ class DuckHead(object):
 		x = Utilities.log("Model Predict",3,x)
 		max_val = 0
 		for idx,val in enumerate(resoloution[0]):
-			if val > max_value:
+			if val > max_val:
 				max_val = val
 				move = idx
 		directions = []
