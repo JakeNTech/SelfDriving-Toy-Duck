@@ -61,13 +61,13 @@ var client = {
         };
 	},
 	move: function(_direction){
-		console.log('Move '+_direction)
+		console.log('Move'+_direction)
 		this.socket.send(_direction);
 		//This adds the momvent to a cosole, when the user makes it move plus the difrection
 	},
 	stop: function(_direction){
-		console.log("Stop "+ _direction)
-		this.socket.send('STOP '+_direction)
+		console.log("Stop"+ _direction)
+		this.socket.send('STOP'+_direction)
 		//This puts when the user trys to stop the duck and a direction into a console
 	},
 	self_drive: function(){
@@ -76,22 +76,22 @@ var client = {
 		if (selfDriveButton.innerText == "Start Self-Drive!"){
 			selfDriveButton.innerText = "Quack!"
 			toggleDpadButtons()
-			this.socket.send("Self-Drive");
+			this.socket.send("SelfDrive");
 		}
 		else{
 			selfDriveButton.innerText = "Start Self-Drive!"
 			toggleDpadButtons()
-			this.socket.send("manual");
+			this.socket.send("Manual");
 		// This changes the text in the button for self driving, it also notifys the pi
 		}
 	},
 	save_frames: function(){
 		console.log("Save Frames")
-		this.socket.send("save_frames");
+		this.socket.send("saveFrames");
 		//saves the video stream to help the traning process
 	},
 	readCamera: function() {
-		this.socket.send("read_camera")
+		this.socket.send("readCamera")
 		//reads the camerea input from the pi
 	},
 	setMode: function(_mode){
@@ -104,7 +104,7 @@ var client = {
 		}
 		else{
 			$('#action-button')
-				.text('Start Self-Drive ')
+				.text('Start SelfDrive ')
 				.click(function(){
 					client.self_drive()
 				})

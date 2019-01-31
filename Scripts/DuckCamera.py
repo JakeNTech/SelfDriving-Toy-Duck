@@ -54,7 +54,7 @@ class CameraFeed(object):
 
 			img = self.detection.detect(raw_capture.array.astype('uint8'))
 			# this runs the object detection
-			self.camera.stop_detected = self.detection.stop_detected
+			self.camera.stopDetected = self.detection.stopDetected
 
 			image_array = numpy.zeros([1,240,320,3])
 			image_array[0]= img
@@ -68,7 +68,7 @@ class CameraFeed(object):
 			#This converts the image into its raw btes value and then saves it
 class ObjectDetection(object):
 	def __init__(self):
-		self.stop_detected = False
+		self.stopDetected = False
 		self.classifier = cv2.CascadeClassifier('Config/stop_sign.xml')
 
 	def detect(self, _image):

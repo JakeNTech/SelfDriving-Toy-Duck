@@ -40,7 +40,7 @@ class LocalServer(tornado.web.Application):
 		#This starts the camera stream for the duck, and users a pre-defined loop
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.train_mode)
+		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.trainMode)
 
 class ErrorHandler(tornado.web.RequestHandler):
 	def get(self):
@@ -54,7 +54,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.camera_loop.stop()
 	def on_message(self, message):
 		#This starts an infinate loop when its called up
-		if message == "read_camera":
+		if message == "readCamera":
 				self.camera_loop = PeriodicCallback(self.loop, 150)
 				self.camera_loop.start()
 				#This sets the camera to 15 Frames per second
@@ -71,17 +71,17 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 		elif (message[5:] in ["BACKWARDS","FORWARD","RIGHT","LEFT"]):
 			self.application.duck.stop()
 			#If user has pressed the Start Self-Drive  button
-		elif (message == 'Self-Drive'):
+		elif (message == 'SelfDrive'):
 			Utilities.log("\n Self Drive!",1)
 			self.application.duck.drive = True
 			self.application.duck.self_drive()
 			# If the user selects to contol the duck manualy
-		elif (message=='manual'):
+		elif (message=='Manual'):
 			Utilities.log("Manual Contol")
 			self.application.duck.drive = False
 			self.application.duck.stop()
 			#If the user wants to save the frames of the camera
-		elif (message=='save_frames'):
+		elif (message=='saveFrames'):
 			Utilities.log("Saving frames")
 			self.application.duck.traindata.save()
 			self.application.duck.drive = False

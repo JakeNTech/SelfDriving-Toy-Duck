@@ -56,7 +56,7 @@ def get_parameters(_train):
 			'pigame': data["pigame"],
 			'verbose': data["verbose"],
 			'channels': data["channels"],
-			'duck_configuration': data['duck_configuration']
+			'duckConfiguration': data['duckConfiguration']
 		}
 		,'camera_parameters':{
 			'path': data["train_data"],
@@ -70,15 +70,15 @@ def get_parameters(_train):
 	}
 	if(_train):
 		# if the train mode is enabled then use thease parameaterts
-		parameters['train_data_parameters']= {
-			'path': data['train_data'],
+		parameters['trainDataParameters']= {
+			'path': data['trainData'],
 			'width': data['width'],
 			'height': data['height'],
 			'channels':data['channels']
 		}
 	else:
 		# if not in training mode set to use the model file
-		parameters['head_parameters'] = {
+		parameters['headParameters'] = {
 			"model": data["model"]
 		}
 	return parameters

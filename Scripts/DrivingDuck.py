@@ -9,7 +9,7 @@ import time
 from Scripts import DuckCamera
 from Scripts import Utilities
 #Imports the other scripts
-
+#--------Class--------------------------
 class DrivingDuck(object):
 	#---------Initialsation settings -----
 	def __init__(self,_parameters):
@@ -20,17 +20,17 @@ class DrivingDuck(object):
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents\
-		self.width = _parameters['duck_parameters']['width']
-		self.height = _parameters['duck_parameters']['height']
-		self.verbose = _parameters['duck_parameters']['verbose']
-		self.configuration = _parameters['duck_parameters']['duck_configuration']
-		self.channels = _parameters['duck_parameters']['channels']
+		self.width = _parameters['duckParameters']['width']
+		self.height = _parameters['duckParameters']['height']
+		self.verbose = _parameters['duckParameters']['verbose']
+		self.configuration = _parameters['duckParameters']['duck_configuration']
+		self.channels = _parameters['duckParameters']['channels']
 		self.defaultspeed = self.configuration['SPEED']['default']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
-		if('train_data_params' in _parameters):
+		if('trainDataParams' in _parameters):
 			import TrainData
-			self.train_data = TrainData.TrainData(_parameters['train_data_parameters'])
+			self.train_data = TrainData.TrainData(_parameters['trainDataParameters'])
 			self.train_mode = True
 		# If the train mode setting is set:
 			#import the training script
@@ -39,16 +39,16 @@ class DrivingDuck(object):
 	#-----------Self Driving-----------------
 		if('head_parameters' in _parameters):
 			from Scripts.DuckHead import DuckHead
-			self.head = DuckHead(_parameters['head_parameters'])
+			self.head = DuckHead(_parameters['headParameters'])
 		# If Self Driving settings are set
 			#Load Thinking script
 			#Load configuration
 	#-----------Other bits-------------------
 		self.init_pins()
-		self.camera = DuckCamera.DuckCamera(_parameters['camera_parameters'])
+		self.camera = DuckCamera.DuckCamera(_parameters['cameraParameters'])
 	#-----------End of initalisation --------
-#Initalisation Functions
-#----------GPIO-------------------
+	#Initalisation Functions
+	#----------GPIO-------------------
 	def init_pins(self):
 		# Hat Settigns
 		# GPIO contols
@@ -65,15 +65,15 @@ class DrivingDuck(object):
 		self.stop()
 	def setspeed(self,_speed):
 		self.speed.ChangeDutyCycle(_speed)
-#---------Training---------------	
+	#---------Training---------------	
 	def train(self):
 		self.train_data_parameters['duck'] = self
 		self.train_data = TrainData.TrainData(self.train_data_parameters)
-#---------Self Driving-----------	
+	#---------Self Driving-----------	
 	def self_drive(self):
 		from Scripts.DuckHead import SelfDriving
 		SelfDriving(self)
-#--------Stoping the duck--------
+	#--------Stoping the duck--------
 	def stop(self,_directions=[]):
 		if(len(_directions) == 0):
 			Utilities.log("Stopping",2)
@@ -85,7 +85,7 @@ class DrivingDuck(object):
 			GPIO.output(self.configuration[directions]["pin"],False)
 
 		self.current_directions = directions
-#---------Move arround corners---	
+	#---------Move arround corners---	
 	def move(self, _directions):
 		if (_directions != self.current_directions):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
@@ -101,22 +101,22 @@ class DrivingDuck(object):
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.current_directions = _directions
 		Utilities.log("Move "+directions[0])
-#----------Logging Movement------	
+	#----------Logging Movement------	
 	def log_move(self,_directions):
-		if(self.train_mode):
-			self.train_data.log_train_data(_directions,self)
+		if(self.trainMode):
+			self.trainData.logTrainData(_directions,self)
 		else:
 			self.move(_directions)
 		t = time.time()
 		if(self.log_photos):
-			self.camera.save_frame(_directions[0])
+			self.camera.saveFrame(_directions[0])
 			t = Utilities.log('Saved images',2,t)
-#----------Getting the script to stop---	
+	#----------Getting the script to stop---	
 	def shutdown(self):
 		Utilities.log("Time for some sleep")
 		GPIO.cleanup()
-		if(self.train_data):
-			self.train_data.save()
+		if(self.trainData):
+			self.trainData.save()
 		else:
 			exit()
-#---------END SCRIPT--------------------
+#---------END SCRIPT AND CLASS-----------------
