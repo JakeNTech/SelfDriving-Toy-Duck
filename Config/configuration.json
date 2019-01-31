@@ -1,17 +1,21 @@
 {
+	//Set to true to show all informaiton to output
 	"verbose":"True",
-
+	//Set resooloution for video stream
 	"size": 1,
 	"width":320,
 	"height":240,
 	"channels":3,
-	
+	//Information about the port that the webserver will use to host site
 	"port": 8090,
+	//Path to mode file.... NOT NEEDED ANY MORE
 	"model":"/home/pi/SelfDriving-Toy-Duck/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
+	//Paht to location for all training data
 	"train_data":"/home/pi/Train",
+	//Dont use the pigame module
 	"pigame": "False",
-
-	"duck_configuration":{
+	//Settings about the GPIO pin configuration
+	"duckConfiguration":{
 		"FORWARD": {"pin":13,"lable_code":0},
 		"RIGHT": {"pin":11, "lable_code":1},
 		"LEFT": {"pin":7, "lable_code":2},
