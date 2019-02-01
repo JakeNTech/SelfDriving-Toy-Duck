@@ -1,4 +1,5 @@
 #Self Driving (rc) duck
+#Set Up script and momvment script
 #A-Level Project
 #30-12-2019
 import RPi.GPIO as GPIO
@@ -19,7 +20,7 @@ class DrivingDuck(object):
 		self.current_directions = []
 		#When initalising it clears all the values for manual control
 		#Without loggin
-		#Prevents any accidents\
+		#Prevents any accidents
 		self.width = _parameters['duckParameters']['width']
 		self.height = _parameters['duckParameters']['height']
 		self.verbose = _parameters['duckParameters']['verbose']
@@ -46,7 +47,9 @@ class DrivingDuck(object):
 	#-----------Other bits-------------------
 		self.init_pins()
 		self.camera = DuckCamera.DuckCamera(_parameters['cameraParameters'])
-	#-----------End of initalisation --------
+		#Calls pin configugration function
+		#Loads up camera configuration
+	#-----------End of setup --------
 	#Initalisation Functions
 	#----------GPIO-------------------
 	def init_pins(self):
@@ -107,10 +110,10 @@ class DrivingDuck(object):
 			self.trainData.logTrainData(_directions,self)
 		else:
 			self.move(_directions)
-		t = time.time()
+		current_time = time.time()
 		if(self.log_photos):
 			self.camera.saveFrame(_directions[0])
-			t = Utilities.log('Saved images',2,t)
+			current_time = Utilities.log('Saved images',2,current_time)
 	#----------Getting the script to stop---	
 	def shutdown(self):
 		Utilities.log("Time for some sleep")
