@@ -9,12 +9,6 @@ function toggleDpadButtons(){
 		//This deactivates the buttons
 	}
 }
-function LoadTitle(){
-	    $.getJSON( "static/Config/configuration.json", function(json) {
-            $('#title').text(json.title)
-        //this loads up a defult config file
-    })
-}
 function BindDPadButtons(_client){
 	$(' #MoveLeftButton').on({
 		"touchstart": function(){_client.move('LEFT')},
@@ -89,7 +83,7 @@ var client = {
 		console.log("Moving to about page")
 		var AboutButton = document.getElementById('about-button');
 		this.socket.send("About")
-	}
+	},
 	save_frames: function(){
 		console.log("Save Frames")
 		this.socket.send("saveFrames");
