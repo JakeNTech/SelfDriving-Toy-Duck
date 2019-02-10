@@ -103,7 +103,6 @@ class DrivingDuck(object):
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.current_directions = _directions
-		Utilities.log("Move "+directions[0])
 	#----------Logging Movement------	
 	def logMove(self,_directions):
 		if(self.trainMode):
