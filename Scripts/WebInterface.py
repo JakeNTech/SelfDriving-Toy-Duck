@@ -68,7 +68,6 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 				directions = [message,"FORWARD"]
 			self.application.duck.move(directions)
 			#This makes it carry on as normal
-
 		#Stopping the duck
 		elif (message[5:] in ["BACKWARDS","FORWARD","RIGHT","LEFT"]):
 			self.application.duck.stop()
