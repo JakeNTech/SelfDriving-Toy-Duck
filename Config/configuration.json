@@ -2,9 +2,9 @@
 	"verbose":"True",
 	
 	"size": 1,
-	"width":320,
-	"height":240,
-	"channels":3,
+	"width": 320,
+	"height": 240,
+	"channels": 3,
 
 	"port": 8090,
 
