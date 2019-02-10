@@ -50,7 +50,7 @@ def get_parameters(_train):
 	#the GIPO pins
 	#Below is setting the setings for the duck
 	parameters = {
-		"duck_parameters": {
+		"duckParameters": {
 			'width': data['width'],
 			'height': data['height'],
 			'pigame': data["pigame"],
@@ -58,12 +58,12 @@ def get_parameters(_train):
 			'channels': data["channels"],
 			'duckConfiguration': data['duckConfiguration']
 		}
-		,'camera_parameters':{
+		,'cameraParameters':{
 			'path': data["train_data"],
 			'width': data['width'],
 			'height': data['height']
 		}
-		,'webserver_parameters':{
+		,'webserverParameters':{
 			'port': data['port'],
 			'duck': None
 		}
