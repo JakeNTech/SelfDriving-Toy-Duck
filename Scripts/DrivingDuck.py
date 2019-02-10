@@ -1,7 +1,7 @@
 #Self Driving (rc) duck
 #Set Up script and momvment script
 #A-Level Project
-#30-12-2019
+#30-12-2018
 import RPi.GPIO as GPIO
 import numpy
 import threading
