@@ -16,7 +16,7 @@ class DrivingDuck(object):
 	def __init__(self,_parameters):
 		self.drive = False
 		self.log_photos = False
-		self.train_mode = False
+		self.trainMode = False
 		self.current_directions = []
 		#When initalising it clears all the values for manual control
 		#Without loggin
@@ -31,8 +31,8 @@ class DrivingDuck(object):
 	#-----------Training Mode----------------
 		if('trainDataParams' in _parameters):
 			import TrainData
-			self.train_data = TrainData.TrainData(_parameters['trainDataParameters'])
-			self.train_mode = True
+			self.trainData = TrainData.TrainData(_parameters['trainDataParameters'])
+			self.trainMode = True
 		# If the train mode setting is set:
 			#import the training script
 				#Load the settings
@@ -70,8 +70,8 @@ class DrivingDuck(object):
 		self.speed.ChangeDutyCycle(_speed)
 	#---------Training---------------	
 	def train(self):
-		self.train_data_parameters['duck'] = self
-		self.train_data = TrainData.TrainData(self.train_data_parameters)
+		self.trainData_parameters['duck'] = self
+		self.trainData = TrainData.TrainData(self.trainDataParameters)
 	#---------Self Driving-----------	
 	def self_drive(self):
 		from Scripts.DuckHead import SelfDriving
