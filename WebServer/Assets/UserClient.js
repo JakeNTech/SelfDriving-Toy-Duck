@@ -85,6 +85,11 @@ var client = {
 		// This changes the text in the button for self driving, it also notifys the pi
 		}
 	},
+	about: function(){
+		console.log("Moving to about page")
+		var AboutButton = document.getElementById('about-button');
+		this.socket.send("About")
+	}
 	save_frames: function(){
 		console.log("Save Frames")
 		this.socket.send("saveFrames");
