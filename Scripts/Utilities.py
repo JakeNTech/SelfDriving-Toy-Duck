@@ -44,7 +44,7 @@ def get_arguments():
 	return prased_arguments
 #This converts the command line arguments into a way python will understand
 def get_parameters(_train):
-	with open("Config/configuration.json") as file:
+	with open("./Config/configuration.json") as file:
 		data = json.load(file)
 	# this opens the configuration file that contains information such as the 
 	#the GIPO pins
