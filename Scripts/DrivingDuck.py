@@ -73,7 +73,7 @@ class DrivingDuck(object):
 		self.trainData_parameters['duck'] = self
 		self.trainData = TrainData.TrainData(self.trainDataParameters)
 	#---------Self Driving-----------	
-	def self_drive(self):
+	def selfDrive(self):
 		from Scripts.DuckHead import SelfDriving
 		SelfDriving(self)
 	#--------Stoping the duck--------
@@ -105,13 +105,13 @@ class DrivingDuck(object):
 			self.current_directions = _directions
 		Utilities.log("Move "+directions[0])
 	#----------Logging Movement------	
-	def log_move(self,_directions):
+	def logMove(self,_directions):
 		if(self.trainMode):
 			self.trainData.logTrainData(_directions,self)
 		else:
 			self.move(_directions)
 		current_time = time.time()
-		if(self.log_photos):
+		if(self.logPhotos):
 			self.camera.saveFrame(_directions[0])
 			current_time = Utilities.log('Saved images',2,current_time)
 	#----------Getting the script to stop---	

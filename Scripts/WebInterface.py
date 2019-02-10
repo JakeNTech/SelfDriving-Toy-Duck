@@ -55,8 +55,8 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 	def on_message(self, message):
 		#This starts an infinate loop when its called up
 		if message == "readCamera":
-			self.camera_loop = PeriodicCallback(self.loop, 150)
-			self.camera_loop.start()
+			self.cameraLoop = PeriodicCallback(self.loop, 150)
+			self.cameraLoop.start()
 			#This sets the camera to 15 Frames per second
 			# It also makes a loop that will keep the camera stream alive
 		elif message =="About":
@@ -75,7 +75,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 		elif (message == 'SelfDrive'):
 			Utilities.log("\n Self Drive!",1)
 			self.application.duck.drive = True
-			self.application.duck.self_drive()
+			self.application.duck.selfDrive()
 			# If the user selects to contol the duck manualy
 		elif (message=='Manual'):
 			Utilities.log("Manual Contol")

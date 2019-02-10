@@ -57,12 +57,12 @@ class SelfDriving(object):
 		with self.duck.head.graph.as_default():
 			while (self.duck.drive):
 				#Gets the images for processing
-				image = self.duck.camera.last_img
+				image = self.duck.camera.lastImg
 				#Gets the predictions about the movement
 				directions = self.duck.head.GetDirections(image)
 				#If the direction has changed, change
-				if (directions != self.duck.current_directions):
-					self.duck.stop(self.duck.current_directions)
+				if (directions != self.duck.currentDirections):
+					self.duck.stop(self.duck.currentDirections)
 					self.duck.move(directions)
 				Utilities.log("Waddeling "+directions[0],2)
 		self.duck.stop()

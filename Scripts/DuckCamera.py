@@ -48,23 +48,23 @@ class CameraFeed(object):
 	def run(self):
 		self.detection = ObjectDetection()
 		while (self.camera.stream):
-			raw_capture = picamera.array.PiRGBArray(self.camera.picam)
-			self.camera.picam.capture(raw_capture, format="rgb",use_video_port=True)
+			rawCapture = picamera.array.PiRGBArray(self.camera.picam)
+			self.camera.picam.capture(rawCapture, format="rgb",use_video_port=True)
 			#this creates a RGB capture and files it into an array
 
-			img = self.detection.detect(raw_capture.array.astype('uint8'))
+			img = self.detection.detect(rawCapture.array.astype('uint8'))
 			# this runs the object detection
 			self.camera.stopDetected = self.detection.stopDetected
 
-			image_array = numpy.zeros([1,240,320,3])
-			image_array[0]= img
-			self.camera.last_img = image_array
+			imageArray = numpy.zeros([1,240,320,3])
+			imageArray[0]= img
+			self.camera.lastImg = imageArray
 			#Saves the current image/frame being used and displayed
 			
 			img = Image.fromarray(img.astype("uint8"),mode="RGB")
 			f = io.BytesIO()
 			img.save(f, "JPEG")
-			self.camera.last_img_bytes = f.getvalue()
+			self.camera.lastImgBytes = f.getvalue()
 			#This converts the image into its raw btes value and then saves it
 class ObjectDetection(object):
 	def __init__(self):
@@ -88,7 +88,7 @@ class ObjectDetection(object):
 				cv2.rectangle(_image, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
 				cv2.putText(_image, 'STOP', (x_pos, y_pos-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)			
 		else:
-			self.stop_detected = False
+			self.stopDzetected = False
 
 		return _image
 		#This finds an object from the model file and puts a box arround it
