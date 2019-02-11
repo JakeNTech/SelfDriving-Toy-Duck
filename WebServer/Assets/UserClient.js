@@ -9,6 +9,8 @@ function toggleDpadButtons(){
 		//This deactivates the buttons
 	}
 }
+//When the buttons are pressed they will trigger the movement and will then stop that movement, adapted for a computer or
+//touch screen
 function BindDPadButtons(_client){
 	$(' #MoveLeftButton').on({
 		"touchstart": function(){_client.move('LEFT')},
@@ -54,23 +56,33 @@ var client = {
             video.src = "data:image/jpeg;base64," + messageEvent.data;
         };
 	},
+	//function adds movement to the console for debugging
 	move: function(_direction){
 		console.log('Move'+_direction)
 		this.socket.send(_direction);
 		//This adds the momvent to a cosole, when the user makes it move plus the difrection
 	},
+	//addes stops message to the console
 	stop: function(_direction){
 		console.log("Stop"+ _direction)
 		this.socket.send('STOP'+_direction)
 		//This puts when the user trys to stop the duck and a direction into a console
 	},
+	//When the Self-Driving button is pressed..self driving gets started
 	self_drive: function(){
-		console.log("Self_Driving funcion called")
 		var selfDriveButton = document.getElementById("action-button");
 		if (selfDriveButton.innerText == "Start Self-Drive!"){
-			selfDriveButton.innerText = "Quack!"
-			toggleDpadButtons()
-			this.socket.send("SelfDrive");
+			var PleaseConfirm = confim("Start Self-Drive?")
+			if (PleaseConfirm == true){
+				alert("Starting Self-Driving")
+				console.log("Starting Self-Driving")
+				selfDriveButton.innerText = "Quack!"
+				toggleDpadButtons()
+				this.socket.send("SelfDrive");
+			}
+			else if (PleaseConfirm == false){
+				alert("Aborting!")
+			}
 		}
 		else{
 			selfDriveButton.innerText = "Start Self-Drive!"
@@ -79,19 +91,15 @@ var client = {
 		// This changes the text in the button for self driving, it also notifys the pi
 		}
 	},
+	//Function for telling the webserver script that the user wants the about page
 	about: function(){
 		console.log("Moving to about page")
 		var AboutButton = document.getElementById('about-button');
 		this.socket.send("About")
 	},
-	save_frames: function(){
-		console.log("Save Frames")
-		this.socket.send("saveFrames");
-		//saves the video stream to help the traning process
-	},
-	readCamera: function() {
+	//Shows the camera output
+	readCamera: function(){
 		this.socket.send("readCamera")
-		//reads the camerea input from the pi
 	},
 	setMode: function(_mode){
 		if (_mode =='True'){
