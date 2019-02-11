@@ -1,5 +1,5 @@
-#Duck head
-#A-level project
+#Project Self-Driving (toy) Duck
+#DuckHead.py
 #1-1-2019 (Happy New Year!)
 import time
 import threading

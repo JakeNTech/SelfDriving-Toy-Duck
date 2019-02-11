@@ -1,5 +1,5 @@
-#Duck Camera
-#Project Duck
+#Project Self-Driving (toy) Duck
+#DuckCamera.py
 #--------------------
 from Scripts import Utilities 
 #Imports the Utilities script
@@ -12,13 +12,9 @@ import time
 import cv2
 #NOOOO NO MORE CV2 PLEASE!
 import io
-
-
 #Getting the camere going
 class DuckCamera(object):
 	def __init__(self,_parameters):
-		Utilities.log("Init. Camera")
-
 		self.stream = True
 		self.path = _parameters['path']
 		#Tells other scrips about the camerea

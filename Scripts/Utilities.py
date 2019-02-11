@@ -1,5 +1,5 @@
 #Project Self-Driving (toy) Duck
-#Utilitiess
+#Utilities.py
 import argparse
 import time
 import json
@@ -12,12 +12,12 @@ def log(_message,_ident=0,_time=0):
 		ti = time.time() - _time
 		if (ti > 60):
 			ti = round(ti/60,2)
-			units = "m"
+			units = "minutes"
 		elif (ti > 3600):
 			ti = round(ti/3600,2)
-			units = "h"
+			units = "hours"
 		else:
-			units = "s"
+			units = "seconds"
 		print(("%s %s. Time: %s %s ")%(indent,_message,ti,units))
 # The above function is for making the log, printing it to the console,
 #Indents, prints the message, and then the time and the unit of time

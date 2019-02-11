@@ -1,5 +1,5 @@
-
-#--------------------
+#Project Self-Driving (toy) Duck
+#WebInterface.py
 # Imports the camerefeed from the DuckCamera script
 from Scripts import Utilities
 from Scripts.DuckCamera import CameraFeed
@@ -59,8 +59,8 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.cameraLoop.start()
 			#This sets the camera to 15 Frames per second
 			# It also makes a loop that will keep the camera stream alive
-		elif message =="About":
-			tornado.web.RequestHandler.redirect("../WebServer/AboutPage/about.html")
+		elif message == "About":
+			self.render("../WebServer/AboutPage/about.html")
 		elif (message in ["BACKWARDS","FORWARD","LEFT","RIGHT"]):
 			directions = [message]
 			# This set the direction to the variable message that is being passed across

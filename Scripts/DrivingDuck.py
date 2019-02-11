@@ -1,6 +1,5 @@
-#Self Driving (rc) duck
-#Set Up script and momvment script
-#A-Level Project
+#Project Self-Driving (toy) Duck
+#DrivingDuck.py
 #30-12-2018
 import RPi.GPIO as GPIO
 import numpy
@@ -38,7 +37,7 @@ class DrivingDuck(object):
 				#Load the settings
 				#Set train to true
 	#-----------Self Driving-----------------
-		if('head_parameters' in _parameters):
+		if('headParameters' in _parameters):
 			from Scripts.DuckHead import DuckHead
 			self.head = DuckHead(_parameters['headParameters'])
 		# If Self Driving settings are set
