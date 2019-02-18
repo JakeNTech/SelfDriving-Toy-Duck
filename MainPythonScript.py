@@ -6,6 +6,7 @@ from Scripts import Utilities , WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 from pygame import mixer
+import time
 #-----------------------
 #This is for the realistic duck noises
 #---------Sound Playback-------------
@@ -26,6 +27,16 @@ if(__name__ == "__main__"):
 	# This gets the duck ready for ation
 	duck.WebInterface = WebInterface.LocalServer(parameters['webserverParameters'],duck)
 	# This starts to host the GUI
+	print("           |Quack|")
+	time.sleep(0.5)
+	print("	   		  | |	__")
+	time.sleep(0.5)
+	print("           \_\<(o )___")
+	time.sleep(0.5)
+	print(" 	     	  ( ._> /")
+	time.sleep(0.5)
+	print("                `---'  ")
+	print("\n")
 	print('Quack! Ready to get the bread!')
 	duck.WebInterface.stream()
 	# Print ready to the shell and then trigger the starting mechanism
@@ -34,3 +45,5 @@ if(__name__ == "__main__"):
 		#From http://soundbible.com/1859-Pissed-Off-Duck.html
 	#	DuckSound(sound_Title)
 	#The above calls the sound playback function to add in the realistic duck noises
+	if (str(input("Press 1 to exit"))=="exit"):
+		DrivingDuck.Shutdown()
