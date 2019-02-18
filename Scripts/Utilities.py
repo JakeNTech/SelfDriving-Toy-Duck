@@ -79,6 +79,5 @@ def get_parameters(_train):
 	else:
 		# if not in training mode set to use the model file
 		parameters['headParameters'] = {
-			"model": data["model"]
 		}
 	return parameters

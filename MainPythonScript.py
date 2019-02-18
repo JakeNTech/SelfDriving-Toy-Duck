@@ -29,7 +29,6 @@ if(__name__ == "__main__"):
 	print('Quack! Ready to get the bread!')
 	duck.WebInterface.stream()
 	# Print ready to the shell and then trigger the starting mechanism
-
 	#while True:
 	#	sound_Title = "./pissed_off_duck-Mike_Koenig-1752213564.mp3"
 		#From http://soundbible.com/1859-Pissed-Off-Duck.html
