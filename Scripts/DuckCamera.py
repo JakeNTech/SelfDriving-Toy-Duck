@@ -17,7 +17,7 @@ class DuckCamera(object):
 	def __init__(self,_parameters):
 		self.stream = True
 		self.path = _parameters['path']
-		#Tells other scrips about the camera
+		#Tells other scrips about the camerea
 		self.picam = PiCamera()
 		self.picam.rotation = 180
 		self.picam.framerate = 15
@@ -67,7 +67,7 @@ class ObjectDetection(object):
 		cascade_obj = self.classifier.detectMultiScale(_image,scaleFactor=1,minNeighbors=5,minSize=(30,30),flags=cv2.CASCADE_SCALE_IMAGE)
 		# draw a rectangle around the objects
 		if (len(cascade_obj)):
-			self.stopDetected = True
+			self.stop_detected = True
 			for (x_pos, y_pos, width, height) in cascade_obj:
 				cv2.rectangle(_image, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
 				cv2.putText(_image, 'STOP', (x_pos, y_pos-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)			

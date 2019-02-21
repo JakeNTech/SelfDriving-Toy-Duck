@@ -4,6 +4,7 @@
 from Scripts import Utilities
 from Scripts.DuckCamera import CameraFeed
 from Scripts import DrivingDuck
+#Import the utilitys script
 import time
 import os
 import io
@@ -46,7 +47,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.write_message(base64.b64encode(self.application.duck.camera.lastImgBytes))
 		except tornado.websocket.WebSocketClosedError:
 			self.cameraLoop.stop()
-	def onMessage(self, message):
+	def on_message(self, message):
 		#This starts an infinate loop when its called up
 		if message == "readCamera":
 			self.cameraLoop = PeriodicCallback(self.loop, 150)
@@ -54,7 +55,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			#This sets the camera to 15 Frames per second
 			# It also makes a loop that will keep the camera stream alive
 		elif message == "About":
-			self.redirect("../WebServer/AboutPage/about.html")
+			self.render("../WebServer/AboutPage/about.html")
 		elif (message in ["BACKWARDS","FORWARD","LEFT","RIGHT"]):
 			directions = [message]
 			# This set the direction to the variable message that is being passed across

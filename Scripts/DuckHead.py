@@ -17,8 +17,8 @@ class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model",1)
 		#Path has to be coded here as there where issues when using the config file
-		filePathToModel = "/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model"
-		self.model = load_model(filePathToModel)
+		path = "/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model"
+		self.model = load_model(path)
 		#with open(_parameters['model'],'rb')as file:
 		#	NewFile = Unpickler(file).load()
 		#self.model = NewFile
@@ -38,11 +38,11 @@ class DuckHead(object):
 			directions = ["FORWARD"]
 		elif move == 1:
 			directions = ["RIGHT","FORWARD"]
-			#Right and forward so the duck turns with out having to have
+			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		elif move == 2:
 			directions = ["LEFT","FORWARD"]
-			#Left and forward so the duck turns with out having to have
+			#Rigt and forward so the duck turns with out having to have
 			#Two buttons pressed down on the GUI
 		else:
 			print("Error")

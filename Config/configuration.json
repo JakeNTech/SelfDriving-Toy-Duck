@@ -1,12 +1,19 @@
 {
 	"verbose":"True",
+	
 	"size": 1,
 	"width": 320,
 	"height": 240,
 	"channels": 3,
-	"port": 1010,
+
+	"port": 8090,
+
+	"model":"/home/pi/SelfDriving-Toy-Duck/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
+
 	"train_data":"/home/pi/Train",
+
 	"pigame": "False",
+
 	"duckConfiguration":{
 		"FORWARD": {"pin":13,"lable_code":0},
 		"RIGHT": {"pin":11, "lable_code":1},
