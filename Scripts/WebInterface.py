@@ -46,7 +46,7 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.write_message(base64.b64encode(self.application.duck.camera.lastImgBytes))
 		except tornado.websocket.WebSocketClosedError:
 			self.cameraLoop.stop()
-	def onMessage(self, message):
+	def on_message(self, message):
 		#This starts an infinate loop when its called up
 		if message == "readCamera":
 			self.cameraLoop = PeriodicCallback(self.loop, 150)
