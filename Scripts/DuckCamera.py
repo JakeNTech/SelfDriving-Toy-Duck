@@ -84,7 +84,7 @@ class ObjectDetection(object):
 				cv2.rectangle(_image, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
 				cv2.putText(_image, 'STOP', (x_pos, y_pos-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)			
 		else:
-			self.stopDzetected = False
+			self.stop_detected = False
 
 		return _image
 		#This finds an object from the model file and puts a box arround it
