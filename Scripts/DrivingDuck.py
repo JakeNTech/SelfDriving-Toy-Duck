@@ -16,7 +16,7 @@ class DrivingDuck(object):
 		self.drive = False
 		self.log_photos = False
 		self.trainMode = False
-		self.current_directions = []
+		self.currentDirections = []
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents
@@ -86,10 +86,10 @@ class DrivingDuck(object):
 		for directions in _directions:
 			GPIO.output(self.configuration[directions]["pin"],False)
 
-		self.current_directions = directions
+		self.currentDirections = directions
 	#---------Move arround corners---	
 	def move(self, _directions):
-		if (_directions != self.current_directions):
+		if (_directions != self.currentDirections):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
 			if (_directions[0] != 'FORWARD'):
@@ -101,7 +101,7 @@ class DrivingDuck(object):
 					self.setspeed(self.defaultspeed)
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
-			self.current_directions = _directions
+			self.currentDirections = _directions
 	#----------Logging Movement------	
 	def logMove(self,_directions):
 		if(self.trainMode):
