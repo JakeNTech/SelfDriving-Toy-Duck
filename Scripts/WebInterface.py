@@ -53,6 +53,8 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.cameraLoop.start()
 			#This sets the camera to 15 Frames per second
 			# It also makes a loop that will keep the camera stream alive
+		elif message == "About":
+			self.redirect("../WebServer/AboutPage/about.html")
 		elif (message in ["BACKWARDS","FORWARD","LEFT","RIGHT"]):
 			directions = [message]
 			# This set the direction to the variable message that is being passed across
