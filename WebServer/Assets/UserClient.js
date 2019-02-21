@@ -70,12 +70,10 @@ var client = {
 	},
 	//When the Self-Driving button is pressed..self driving gets started
 	self_drive: function(){
-		function confirmBox(){
-			confirm("Start Self-Drive?")
-		}
 		var selfDriveButton = document.getElementById("action-button");
 		if (selfDriveButton.innerText == "Start Self-Drive!"){
-			var PleaseConfirm = confimBox()
+			var PleaseConfirm = false
+			PleaseConfirm = confirm("Are you sure you wish to start self-driving?")
 			if (PleaseConfirm == true){
 				alert("Starting Self-Driving")
 				console.log("Starting Self-Driving")
