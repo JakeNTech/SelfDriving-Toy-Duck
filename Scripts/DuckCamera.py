@@ -64,7 +64,12 @@ class ObjectDetection(object):
 		self.classifier = cv2.CascadeClassifier('Config/stop_sign.xml')
 	def detect(self, _image):
 		# detection
-		cascade_obj = self.classifier.detectMultiScale(_image,scaleFactor=1,minNeighbors=5,minSize=(30,30),flags=cv2.CASCADE_SCALE_IMAGE)
+		cascade_obj = self.classifier.detectMultiScale(
+			_image,
+			scaleFactor=1,
+			minNeighbors=5,
+			minSize=(30, 30),
+			flags=cv2.CASCADE_SCALE_IMAGE)
 		# draw a rectangle around the objects
 		if (len(cascade_obj)):
 			self.stopDetected = True
