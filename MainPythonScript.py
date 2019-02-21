@@ -26,6 +26,17 @@ if(__name__ == "__main__"):
 	duck = DrivingDuck.DrivingDuck(parameters)
 	# This gets the duck ready for ation
 	duck.WebInterface = WebInterface.LocalServer(parameters['webserverParameters'],duck)
+	# This starts to host the GUI
+	print("           |Quack|")
+	time.sleep(0.5)
+	print("	   		  | |	__")
+	time.sleep(0.5)
+	print("           \_\<(o )___")
+	time.sleep(0.5)
+	print(" 	     	  ( ._> /")
+	time.sleep(0.5)
+	print("                `---'  ")
+	print("\n")
 	print('Quack! Ready to get the bread!')
 	duck.WebInterface.stream()
 	# Print ready to the shell and then trigger the starting mechanism
