@@ -25,7 +25,7 @@ class LocalServer(tornado.web.Application):
 		self.port = parameters['port']
 		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
-		#Get root privlages on pi and then adjust paths to find the right files, although starting with a SUDO command should remove the need for this
+		#Get root privlages on pi and then adjust paths to find the right files
 		self.handlers = [(r"/", IndexHandler),(r"/websocket",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
 	def stream(self):
 		settings = {'debug':True}
