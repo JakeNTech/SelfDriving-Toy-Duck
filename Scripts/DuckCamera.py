@@ -30,6 +30,7 @@ class DuckCamera(object):
 			name = string(Utilities.ms_ephoc())+":"+string(_turn)
 			#This takes the movement name ie.left and converts it to text
 			#This allows for training
+
 #Getting the camera feed
 #NO TWITCH
 class CameraFeed(object):
@@ -46,13 +47,16 @@ class CameraFeed(object):
 			rawCapture = picamera.array.PiRGBArray(self.camera.picam)
 			self.camera.picam.capture(rawCapture, format="rgb",use_video_port=True)
 			#this creates a RGB capture and files it into an array
+
 			img = self.detection.detect(rawCapture.array.astype('uint8'))
 			# this runs the object detection
 			self.camera.stopDetected = self.detection.stopDetected
+
 			imageArray = numpy.zeros([1,240,320,3])
 			imageArray[0]= img
 			self.camera.lastImg = imageArray
 			#Saves the current image/frame being used and displayed
+			
 			img = Image.fromarray(img.astype("uint8"),mode="RGB")
 			f = io.BytesIO()
 			img.save(f, "JPEG")
@@ -62,9 +66,17 @@ class ObjectDetection(object):
 	def __init__(self):
 		self.stopDetected = False
 		self.classifier = cv2.CascadeClassifier('Config/stop_sign.xml')
+
 	def detect(self, _image):
 		# detection
-		cascade_obj = self.classifier.detectMultiScale(_image,scaleFactor=1,minNeighbors=5,minSize=(30,30),flags=cv2.CASCADE_SCALE_IMAGE)
+		cascade_obj = self.classifier.detectMultiScale(
+			_image,
+			scaleFactor=1.1,
+			minNeighbors=5,
+			minSize=(30, 30),
+			flags=cv2.CASCADE_SCALE_IMAGE
+		)
+
 		# draw a rectangle around the objects
 		if (len(cascade_obj)):
 			self.stop_detected = True
@@ -72,7 +84,8 @@ class ObjectDetection(object):
 				cv2.rectangle(_image, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
 				cv2.putText(_image, 'STOP', (x_pos, y_pos-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)			
 		else:
-			self.stopDetected = False
+			self.stopDzetected = False
+
 		return _image
 		#This finds an object from the model file and puts a box arround it
 		#It could be made to put text under the object that has been detected, this 

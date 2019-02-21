@@ -16,6 +16,7 @@ from tornado.ioloop import PeriodicCallback
 import tornado.websocket
 import tornado.web
 # Imports Tornado Modules
+
 class LocalServer(tornado.web.Application):
 	#Class to help contain the code
 	def __init__(self,parameters,_duck):
@@ -24,9 +25,11 @@ class LocalServer(tornado.web.Application):
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
 		self.port = parameters['port']
+
 		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Get root privlages on pi and then adjust paths to find the right files
+
 		self.handlers = [(r"/", IndexHandler),(r"/websocket",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
 	def stream(self):
 		settings = {'debug':True}
@@ -38,9 +41,11 @@ class LocalServer(tornado.web.Application):
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.trainMode)
+
 class ErrorHandler(tornado.web.RequestHandler):
 	def get(self):
 		self.send_error(status_code=403)
+
 class WebSocket(tornado.websocket.WebSocketHandler):
 	def loop(self):
 		try:

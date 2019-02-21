@@ -16,7 +16,6 @@ from Scripts import Utilities
 class DuckHead(object):
 	def __init__(self,_parameters):
 		Utilities.log("Initialisation model",1)
-		#Path has to be coded here as there where issues when using the config file
 		path = "/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model"
 		self.model = load_model(path)
 		#with open(_parameters['model'],'rb')as file:

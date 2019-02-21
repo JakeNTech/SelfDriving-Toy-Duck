@@ -5,6 +5,7 @@ import time
 import json
 import os
 #import the needed modules
+
 def log(_message,_ident=0,_time=0):
 	indent = " "*_ident
 	if (_time!= 0):
@@ -48,7 +49,6 @@ def get_parameters(_train):
 	# this opens the configuration file that contains information such as the 
 	#the GIPO pins
 	#Below is setting the setings for the duck
-	#Array
 	parameters = {
 		"duckParameters": {
 			'width': data['width'],
