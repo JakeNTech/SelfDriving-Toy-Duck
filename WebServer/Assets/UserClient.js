@@ -57,15 +57,15 @@ var client = {
         };
 	},
 	//function adds movement to the console for debugging
-	move: function(_direction){
-		console.log('Move'+_direction)
-		this.socket.send(_direction);
+	move: function(_directions){
+		console.log('Move'+_directions)
+		this.socket.send(_directions);
 		//This adds the momvent to a cosole, when the user makes it move plus the difrection
 	},
 	//addes stops message to the console
 	stop: function(_direction){
-		console.log("Stop"+ _direction)
-		this.socket.send('STOP'+_direction)
+		console.log("Stop"+ _directions)
+		this.socket.send('STOP'+_directions)
 		//This puts when the user trys to stop the duck and a direction into a console
 	},
 	//When the Self-Driving button is pressed..self driving gets started
@@ -95,7 +95,7 @@ var client = {
 	//Function for telling the webserver script that the user wants the about page
 	shutdown: function(){
 		var shutdownButton = document.getElementById("shutdown-button")
-		if (shutdownButton.innnerText == "Shutdown!")
+		if (shutdownButton.innnerText == "Shutdown")
 			console.log("shutdown")
 			this.socket.send("shutdown")
 	},

@@ -78,14 +78,12 @@ class DrivingDuck(object):
 	#--------Stoping the duck--------
 	def stop(self,_directions=[]):
 		if(len(_directions) == 0):
-			Utilities.log("Stopping",2)
+			Utilities.log("Stoping",2)
 			directions = self.configuration
 		else:
 			directions = _directions
-
 		for direction in directions:
 			GPIO.output(self.configuration[direction]["pin"],False)
-
 		self.currentDirections = directions
 	#---------Move arround corners---	
 	def move(self, _directions):
