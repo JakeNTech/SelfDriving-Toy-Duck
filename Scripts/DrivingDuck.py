@@ -84,7 +84,7 @@ class DrivingDuck(object):
 			directions = _directions
 
 		for direction in directions:
-			GPIO.output(self.configuration[directions]["pin"],False)
+			GPIO.output(self.configuration[direction]["pin"],False)
 
 		self.currentDirections = directions
 	#---------Move arround corners---	
