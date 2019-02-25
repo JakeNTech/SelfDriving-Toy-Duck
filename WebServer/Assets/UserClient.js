@@ -58,7 +58,7 @@ var client = {
 	},
 	//function adds movement to the console for debugging
 	move: function(_directions){
-		console.log('Move'+_directions)
+		console.log('Move '+_directions)
 		this.socket.send(_directions);
 		//This adds the momvent to a cosole, when the user makes it move plus the difrection
 	},
