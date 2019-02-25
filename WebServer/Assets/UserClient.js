@@ -93,9 +93,11 @@ var client = {
 		}
 	},
 	//Function for telling the webserver script that the user wants the about page
-	about: function(){
-		console.log("Moving to about page")
-		this.socket.send("shutdown")
+	shutdown: function(){
+		var shutdownButton = document.getElementById("shutdown-button")
+		if (shutdownButton.innnerText == "Shutdown!")
+			console.log("shutdown")
+			this.socket.send("shutdown")
 	},
 	//Shows the camera output
 	readCamera: function(){

@@ -71,7 +71,6 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 		#Stopping the duck
 		elif (message[5:] in ["BACKWARDS","FORWARD","RIGHT","LEFT"]):
 			self.application.duck.stop()
-			exit()
 			#If user has pressed the Start Self-Drive  button
 		elif (message == 'SelfDrive'):
 			Utilities.log("\n Self Drive!",1)
