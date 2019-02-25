@@ -83,7 +83,7 @@ class DrivingDuck(object):
 		else:
 			directions = _directions
 
-		for directions in _directions:
+		for direction in directions:
 			GPIO.output(self.configuration[directions]["pin"],False)
 
 		self.currentDirections = directions
