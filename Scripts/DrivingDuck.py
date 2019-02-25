@@ -25,7 +25,7 @@ class DrivingDuck(object):
 		self.verbose = _parameters['duckParameters']['verbose']
 		self.configuration = _parameters['duckParameters']['duckConfiguration']
 		self.channels = _parameters['duckParameters']['channels']
-		self.defaultspeed = self.configuration['SPEED']['default']
+		self.defaultSpeed = self.configuration['SPEED']['default']
 		#Initailises all the parameatres 
 	#-----------Training Mode----------------
 		if('trainDataParams' in _parameters):
@@ -91,12 +91,12 @@ class DrivingDuck(object):
 			#To make sure that it can actually go arround courners we need to boost the power to the motors
 			#This is done by speed control
 			if (_directions[0] != 'FORWARD'):
-				NewSpeed = int(self.defaultspeed*2)
+				NewSpeed = int(self.defaultSpeed*1.2)
 				if (NewSpeed > 100):
 					NewSpeed = 100
 					self.setspeed(NewSpeed)
 				else:
-					self.setspeed(self.defaultspeed)
+					self.setspeed(self.defaultSpeed)
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.currentDirections = _directions

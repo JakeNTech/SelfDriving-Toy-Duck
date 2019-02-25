@@ -19,6 +19,6 @@
 		"RIGHT": {"pin":11, "lable_code":1},
 		"LEFT": {"pin":7, "lable_code":2},
 		"BACKWARDS": {"pin":15, "lable_code":-1},
-		"SPEED":{"pin": 16, "default":10}
+		"SPEED":{"pin": 16, "default":55}
 	}
 }
