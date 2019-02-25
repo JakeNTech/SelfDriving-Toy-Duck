@@ -63,7 +63,7 @@ var client = {
 		//This adds the momvent to a cosole, when the user makes it move plus the difrection
 	},
 	//addes stops message to the console
-	stop: function(_direction){
+	stop: function(_directions){
 		console.log("Stop"+ _directions)
 		this.socket.send('STOP'+_directions)
 		//This puts when the user trys to stop the duck and a direction into a console
