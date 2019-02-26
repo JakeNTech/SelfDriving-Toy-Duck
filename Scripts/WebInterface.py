@@ -82,12 +82,8 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.application.duck.drive = False
 			self.application.duck.stop()
 			#If the user wants to save the frames of the camera
-		elif (message=='saveFrames'):
-			Utilities.log("Saving frames")
-			self.application.duck.traindata.save()
-			self.application.duck.drive = False
 		# If the user presses shutdown
-		elif (message=="Shutdown"):
+		elif (message == "shutdown"):
 			DrivingDuck.shutdown()
 		#Error Catching
 		else:
