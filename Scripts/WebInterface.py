@@ -1,22 +1,20 @@
 #Project Self-Driving (toy) Duck
 #WebInterface.py
-# Imports the camerefeed from the DuckCamera script
+#-----LOCAL IMPORTS-----------------------
 from Scripts import Utilities
 from Scripts.DuckCamera import CameraFeed
 from Scripts import DrivingDuck
-#Import the utilitys script
+#-----IMPORTS External scripts-------------
 import time
 import os
 import io
 import base64
 import webbrowser
 import threading
-# Imports all the needed buit in python moduls
 from tornado.ioloop import PeriodicCallback
 import tornado.websocket
 import tornado.web
-# Imports Tornado Modules
-
+#------CLASS Giving tornado the file paths---------
 class LocalServer(tornado.web.Application):
 	#Class to help contain the code
 	def __init__(self,parameters,_duck):
@@ -25,11 +23,10 @@ class LocalServer(tornado.web.Application):
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
 		self.port = parameters['port']
-
+		#Get root privlages on pi and then adjust paths to find the right files
 		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
-		#Get root privlages on pi and then adjust paths to find the right files
-
+		#Sets the file paths for the Index and lets tornado know we are using its file management
 		self.handlers = [(r"/", IndexHandler),(r"/websocket",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
 	def stream(self):
 		settings = {'debug':True}
@@ -38,16 +35,21 @@ class LocalServer(tornado.web.Application):
 		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
 		#This starts the camera stream for the duck, and users a pre-defined loop
+#------CLASS IndexHandler --------------------
 class IndexHandler(tornado.web.RequestHandler):
+	#When you type in the IP/URL you are taken to an Index.html by defualt
+	#This is the handler for that in tornado
 	def get(self):
 		self.render("../WebServer/index.html", port=self.application.port)
-
+#------CLASS Error Handler --------------------
 class ErrorHandler(tornado.web.RequestHandler):
+	#if there is anerror this is what tornado should send
 	def get(self):
 		self.send_error(status_code=403)
-
+#Class The Coms Between the GUI and the Scripts ---
 class WebSocket(tornado.websocket.WebSocketHandler):
 	def loop(self):
+		#this creates a loop for the camera to start running on
 		try:
 			self.write_message(base64.b64encode(self.application.duck.camera.lastImgBytes))
 		except tornado.websocket.WebSocketClosedError:
