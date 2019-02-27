@@ -40,7 +40,7 @@ class LocalServer(tornado.web.Application):
 		#This starts the camera stream for the duck, and users a pre-defined loop
 class IndexHandler(tornado.web.RequestHandler):
 	def get(self):
-		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.trainMode)
+		self.render("../WebServer/index.html", port=self.application.port)
 
 class ErrorHandler(tornado.web.RequestHandler):
 	def get(self):
