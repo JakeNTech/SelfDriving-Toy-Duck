@@ -1,45 +1,30 @@
 /*global $, WebSocket, console, window, document*/
 "use strict";
 //This is the Java file that connects the GUI to the Pi
-function toggleDpadButtons(){
-	var dpad_buttons = document.getElementsByClassName("DirectionButton")
-	// This gets informatnion about the buttons forom the HTML page
-	for (var i=0 ; i< dpad_buttons.lenght; i++){
-		dpad_buttons[i].disabled = !dpad_buttons[i].disabled
-		//This deactivates the buttons
-	}
-}
+
 //When the buttons are pressed they will trigger the movement and will then stop that movement, adapted for a computer or
 //touch screen
-function BindDPadButtons(_client){
+function MovementButtons(_clientMessage){
 	$(' #MoveLeftButton').on({
-		"touchstart": function(){_client.move('LEFT')},
-		"mousedown": function(){_client.move('LEFT')},
-		"touchend": function(){_client.stop('LEFT')},
-		"mouseup": function(){_client.stop('LEFT')}
+		"touchstart": function(){_clientMessage.move('LEFT')},
+		"touchend": function(){_clientMessage.stop('LEFT')},
 	})
 	$(' #MoveRightButton ').on({
-		"touchstart": function(){_client.move('RIGHT')},
-		"mousedown": function(){_client.move('RIGHT')},
-		"touchend": function(){_client.stop('RIGHT')},
-		"mouseup": function(){_client.stop('RIGHT')}
+		"touchstart": function(){_clientMessage.move('RIGHT')},
+		"touchend": function(){_clientMessage.stop('RIGHT')},
 	})
 	$(' #MoveBackwardsButton').on({
-		"touchstart": function(){_client.move('BACKWARDS')},
-		"mousedown": function(){_client.move('BACKWARDS')},
-		"touchend": function(){_client.stop('BACKWARDS')},
-		"mouseup": function(){_client.stop('BACKWARDS')}
+		"touchstart": function(){_clientMessage.move('BACKWARDS')},
+		"touchend": function(){_clientMessage.stop('BACKWARDS')},
 	})
 	$(' #MoveForwardButton').on({
-		"touchstart": function(){_client.move('FORWARD')},
-		"mousedown": function(){_client.move('FORWARD')},
-		"touchend": function(){_client.stop('FORWARD')},
-		"mouseup": function(){_client.stop('FORWARD')}
+		"touchstart": function(){_clientMessage.move('FORWARD')},
+		"touchend": function(){_clientMessage.stop('FORWARD')},
 	})
 }
 // The above is what sends the users button presses to the main script, there are diffrent methods as the user 
 //can interact with the code on diffrent platforms
-var client = {
+var clientMessage = {
 	//connects the users device to the open socket on the pi
 	connect: function (port,callback) {
 		var self = this, video = document.getElementById("video");
@@ -48,7 +33,7 @@ var client = {
 		this.socket.onopen = function(){
 			console.log("Connected!");
 			self.readCamera();
-			BindDPadButtons(self)
+			MovementButtons(self)
 		};
 		// to prevent oddness with a video stream on the users device, the video feed is converted too images, and this ensures
 		// that there is not issues with this
@@ -78,7 +63,6 @@ var client = {
 				alert("Starting Self-Driving")
 				console.log("Starting Self-Driving")
 				selfDriveButton.innerText = "Quack!"
-				toggleDpadButtons()
 				this.socket.send("SelfDrive");
 			}
 			else if (PleaseConfirm == false){
@@ -87,7 +71,6 @@ var client = {
 		}
 		else{
 			selfDriveButton.innerText = "Start Self-Drive!"
-			toggleDpadButtons()
 			this.socket.send("Manual");
 		// This changes the text in the button for self driving, it also notifys the pi
 		}
@@ -104,20 +87,4 @@ var client = {
 	readCamera: function(){
 		this.socket.send("readCamera")
 	},
-	setMode: function(_mode){
-		if (_mode =='True'){
-			$('#action-button')
-				.text('Train')
-				.click(function(){
-					client.save_frames()
-				})
-		}
-		else{
-			$('#action-button')
-				.text('Start SelfDrive ')
-				.click(function(){
-					client.self_drive()
-				})
-		}
-	}
 };
