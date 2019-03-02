@@ -40,8 +40,13 @@ class IndexHandler(tornado.web.RequestHandler):
 	#When you type in the IP/URL you are taken to an Index.html by defualt
 	#This is the handler for that in tornado
 	def get(self):
+<<<<<<< HEAD
 		self.render("../WebServer/index.html", port=self.application.port)
 #------CLASS Error Handler --------------------
+=======
+		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.trainMode)
+
+>>>>>>> parent of 56f8eb2... Removal of train data
 class ErrorHandler(tornado.web.RequestHandler):
 	#if there is anerror this is what tornado should send
 	def get(self):

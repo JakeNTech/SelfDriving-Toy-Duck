@@ -37,8 +37,13 @@ def root_accsess():
 	return os.path.normpath(os.path.dirname(__file__))
 #This get root privaleges, the second highest you can get on UNIX
 #It goes under SU rights
+def get_arguments():
+	parser = argparse.ArgumentParser(prog="drive")
+	parser.add_argument("-train", help="Set for training", action="store_true", default=False)
+	prased_arguments = parser.parse_args()
+	return prased_arguments
 #This converts the command line arguments into a way python will understand
-def get_parameters():
+def get_parameters(_train):
 	with open("./Config/configuration.json") as file:
 		data = json.load(file)
 	# this opens the configuration file that contains information such as the 
@@ -54,6 +59,7 @@ def get_parameters():
 			'duckConfiguration': data['duckConfiguration']
 		}
 		,'cameraParameters':{
+			'path': data["train_data"],
 			'width': data['width'],
 			'height': data['height']
 		}
@@ -61,9 +67,18 @@ def get_parameters():
 			'port': data['port'],
 			'duck': None
 		}
-		,'headParameters:'{
-			'mode':data["model"]
-		}
-
 	}
+	if(_train):
+		# if the train mode is enabled then use thease parameaterts
+		parameters['trainDataParameters']= {
+			'path': data['trainData'],
+			'width': data['width'],
+			'height': data['height'],
+			'channels':data['channels']
+		}
+	else:
+		# if not in training mode set to use the model file
+		parameters['headParameters'] = {
+			"model": data["model"]
+		}
 	return parameters
