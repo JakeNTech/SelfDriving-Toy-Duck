@@ -58,7 +58,7 @@ class DrivingDuck(object):
 		GPIO.setmode(GPIO.BOARD)
 		GPIO.setwarnings(False)
 		for directions in self.configuration:
-			GPIO.setup(self.configuration[direction]['pin'],GPIO.OUT)
+			GPIO.setup(self.configuration[directions]['pin'],GPIO.OUT)
 		#Sets Defult speed
 		self.speed = GPIO.PWM(self.configuration["SPEED"]["pin"],100)
 		self.speed.start(self.configuration["SPEED"]['default'])
