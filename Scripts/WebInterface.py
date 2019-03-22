@@ -45,6 +45,9 @@ class ErrorHandler(tornado.web.RequestHandler):
 	#if there is anerror this is what tornado should send
 	def get(self):
 		self.send_error(status_code=403)
+class AboutHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.render("../WebServer/AboutPage/about.html", port=self.application.port)
 #Class The Coms Between the GUI and the Scripts ---
 class WebSocket(tornado.websocket.WebSocketHandler):
 	def loop(self):
@@ -83,9 +86,8 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.application.duck.drive = False
 			self.application.duck.stop()
 			#If the user wants to save the frames of the camera
-		# If the user presses shutdown
-		elif (message == "shutdown"):
-			DrivingDuck.shutdown()
+		elif (message=="About"):
+			self.AboutHandler()
 		#Error Catching
 		else:
 			Utilities.log("An unnexpected error cooured, from:" + message)

@@ -4,6 +4,8 @@ body {
 
     font-family: 'Noto Sans SC', sans-serif;
     font-weight: 350;
+    background: rgb(2,0,36);
+    background: linear-gradient(62deg, rgba(2,0,36,1) 0%, rgba(129,193,244,1) 46%, rgba(81,200,248,1) 72%, rgba(13,29,238,1) 100%);
 }
 
 h1 {

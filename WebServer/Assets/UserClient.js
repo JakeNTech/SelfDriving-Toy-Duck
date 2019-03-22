@@ -1,14 +1,6 @@
 /*global $, WebSocket, console, window, document*/
 "use strict";
 //This is the Java file that connects the GUI to the Pi
-function toggleDpadButtons(){
-	var dpad_buttons = document.getElementsByClassName("DirectionButton")
-	// This gets informatnion about the buttons forom the HTML page
-	for (var i=0 ; i< dpad_buttons.lenght; i++){
-		dpad_buttons[i].disabled = !dpad_buttons[i].disabled
-		//This deactivates the buttons
-	}
-}
 //When the buttons are pressed they will trigger the movement and will then stop that movement, adapted for a computer or
 //touch screen
 function BindDPadButtons(_client){
@@ -87,7 +79,6 @@ var client = {
 		}
 		else{
 			selfDriveButton.innerText = "Start Self-Drive!"
-			toggleDpadButtons()
 			this.socket.send("Manual");
 		// This changes the text in the button for self driving, it also notifys the pi
 		}
@@ -100,6 +91,10 @@ var client = {
 			this.socket.send("shutdown");
 		}
 	},
+	about: function(){
+		console.log("Redirect to about page")
+		this.socket.send("about")
+	}
 	//Shows the camera output
 	readCamera: function(){
 		this.socket.send("readCamera")
