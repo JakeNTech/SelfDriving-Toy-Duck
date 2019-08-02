@@ -67,6 +67,7 @@ var client = {
 			var PleaseConfirm = false
 			PleaseConfirm = confirm("Are you sure you wish to start self-driving?")
 			if (PleaseConfirm == true){
+				console.log("Self-Driving Started!")
 				alert("Starting Self-Driving")
 				console.log("Starting Self-Driving")
 				selfDriveButton.innerText = "Quack!"
@@ -75,6 +76,7 @@ var client = {
 			}
 			else if (PleaseConfirm == false){
 				alert("Aborting!")
+				console.log("Stopping")
 			}
 		}
 		else{
@@ -91,13 +93,10 @@ var client = {
 			this.socket.send("shutdown");
 		}
 	},
-	about: function(){
-		console.log("Redirect to about page")
-		this.socket.send("about")
-	},
 	//Shows the camera output
 	readCamera: function(){
 		this.socket.send("readCamera")
+		console.log("readCamera")
 	},
 	setMode: function(){
 		$('#action-button')
