@@ -2,18 +2,12 @@
 #Command to run "sudo python3 MainPythonScript.py"
 #Command to train "sudo python3 MainPythonScript.py train"
 #--------------------
-from Scripts import Utilities , WebInterface, DrivingDuck
+from Scripts import WebInterface, DrivingDuck
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 from pygame import mixer
 #-----------------------
 #This is for the realistic duck noises
-#---------Sound Playback-------------
-def DuckSound(SoundTitle):
-	#From https://stackoverflow.com/questions/20021457/playing-mp3-song-on-python
-	mixer.init()
-	mixer.music.load(SoundTitle)
-	mixer.music.play()
 #Settigns and configurations
 perameters = {
 	"verbose":"True",

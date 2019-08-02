@@ -7,7 +7,6 @@ import threading
 import time
 #Import Python Libarys
 from Scripts import DuckCamera
-from Scripts import Utilities
 #Imports the other scripts
 #--------Class--------------------------
 class DrivingDuck(object):

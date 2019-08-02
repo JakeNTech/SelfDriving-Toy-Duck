@@ -1,8 +1,6 @@
 #Project Self-Driving (toy) Duck
 #DuckCamera.py
 #--------------------
-from Scripts import Utilities 
-#Imports the Utilities script
 from picamera import PiCamera
 import picamera.array
 from PIL import Image
