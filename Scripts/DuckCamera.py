@@ -14,7 +14,6 @@ import io
 class DuckCamera(object):
 	def __init__(self,_parameters):
 		self.stream = True
-		self.path = _parameters['path']
 		#Tells other scrips about the camerea
 		self.picam = PiCamera()
 		self.picam.rotation = 180
