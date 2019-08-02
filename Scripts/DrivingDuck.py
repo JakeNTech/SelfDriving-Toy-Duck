@@ -29,7 +29,7 @@ class DrivingDuck(object):
 		self.width = 320
 		self.height = 240
 		self.verbose = True
-		self.configuration = _parameters['duckParameters']['duckConfiguration']
+		self.configuration = duckParameters
 		self.channels = 3
 		self.defaultSpeed = 55
 		#Initailises all the parameatres 
