@@ -1,7 +1,6 @@
 #Project Self-Driving (toy) Duck
 #WebInterface.py
 #-----LOCAL IMPORTS-----------------------
-from Scripts import Utilities
 from Scripts.DuckCamera import CameraFeed
 from Scripts import DrivingDuck
 #-----IMPORTS External scripts-------------
