@@ -2,28 +2,18 @@
 #Command to run "sudo python3 MainPythonScript.py"
 #Command to train "sudo python3 MainPythonScript.py train"
 #--------------------
-from Scripts import Utilities , WebInterface, DrivingDuck
+from Scripts import WebInterface, DrivingDuck, Utilites
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 from pygame import mixer
-#-----------------------
-#This is for the realistic duck noises
-#---------Sound Playback-------------
-def DuckSound(SoundTitle):
-	#From https://stackoverflow.com/questions/20021457/playing-mp3-song-on-python
-	mixer.init()
-	mixer.music.load(SoundTitle)
-	mixer.music.play()
 #--------Main Function--------------
 if(__name__ == "__main__"):
-	arguments = Utilities.get_arguments()
-	# This gets the arguments from the Utilities script
-	#print(arguments)
-	parameters = Utilities.get_parameters(arguments.train)
+	parameters = Utilites.get_parameters()
 	#Featches the perameaters
 	#print(parameters)
+	#The line above runs the perameters function
 	duck = DrivingDuck.DrivingDuck(parameters)
-	# This gets the duck ready for ation
+	# This gets the duck ready for ationxt
 	duck.WebInterface = WebInterface.LocalServer(parameters['webserverParameters'],duck)
 	# This starts to host the GUI
 	print('Quack! Ready to get the bread!')
