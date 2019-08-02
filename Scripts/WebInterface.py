@@ -43,9 +43,6 @@ class ErrorHandler(tornado.web.RequestHandler):
 	#if there is anerror this is what tornado should send
 	def get(self):
 		self.send_error(status_code=403)
-class AboutHandler(tornado.web.RequestHandler):
-	def get(self):
-		self.render("../WebServer/AboutPage/about.html", port=8090)
 #Class The Coms Between the GUI and the Scripts ---
 class WebSocket(tornado.websocket.WebSocketHandler):
 	def loop(self):
