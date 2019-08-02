@@ -15,30 +15,28 @@ def DuckSound(SoundTitle):
 	mixer.music.load(SoundTitle)
 	mixer.music.play()
 #Settigns and configurations
-parameters = {
-	"duckParameters": {
-		'width': 320,
-		'height': 240,
-		'pigame': "False",
-		'verbose': "True",
-		'channels': 3,
-		'duckConfiguration': {
-			"FORWARD": {"pin":13,"lable_code":0},
-			"RIGHT": {"pin":11, "lable_code":1},
-			"LEFT": {"pin":18, "lable_code":2},
-			"BACKWARDS": {"pin":15, "lable_code":-1},
-			"SPEED":{"pin": 16, "default":55}
-		}
-	}
-	,'cameraParameters':{
-		'width': 320,
-		'height': 240
-	}
-	,'webserverParameters':{
-		'duck': None
-	}
-	"headParameters":{
-	"model":"PathToFile"
+perameters = {
+	"verbose":"True",
+	
+	"size": 1,
+	"width": 320,
+	"height": 240,
+	"channels": 3,
+
+	"port": 8090,
+
+	"model":"/home/pi/SelfDriving-Toy-Duck/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
+
+	"train_data":"/home/pi/Train",
+
+	"pigame": "False",
+
+	"duckConfiguration":{
+		"FORWARD": {"pin":13,"lable_code":0},
+		"RIGHT": {"pin":11, "lable_code":1},
+		"LEFT": {"pin":18, "lable_code":2},
+		"BACKWARDS": {"pin":15, "lable_code":-1},
+		"SPEED":{"pin": 16, "default":55}
 	}
 }
 #--------Main Function--------------
