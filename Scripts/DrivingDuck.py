@@ -11,6 +11,14 @@ from Scripts import DuckCamera
 #--------Class--------------------------
 class DrivingDuck(object):
 	#---------Initialsation settings -----
+	duckParameters = {"duckConfiguration":{
+		"FORWARD": {"pin":13,"lable_code":0},
+		"RIGHT": {"pin":11, "lable_code":1},
+		"LEFT": {"pin":18, "lable_code":2},
+		"BACKWARDS": {"pin":15, "lable_code":-1},
+		"SPEED":{"pin": 16, "default":55}
+	}
+	}
 	def __init__(self,_parameters):
 		self.drive = False
 		self.log_photos = False
