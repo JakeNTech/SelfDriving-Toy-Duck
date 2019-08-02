@@ -4,8 +4,7 @@ import argparse
 import time
 import json
 import os
-#import the needed modules
-
+#import the needed moduless
 def log(_message,_ident=0,_time=0):
 	indent = " "*_ident
 	if (_time!= 0):

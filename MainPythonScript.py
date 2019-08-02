@@ -2,7 +2,7 @@
 #Command to run "sudo python3 MainPythonScript.py"
 #Command to train "sudo python3 MainPythonScript.py train"
 #--------------------
-from Scripts import WebInterface, DrivingDuck, Utilites
+from Scripts import WebInterface, DrivingDuck, Utilities
 #This gets all the various scripts that are needed to drive the duck
 #This is the script that ties is all togeter
 from pygame import mixer
