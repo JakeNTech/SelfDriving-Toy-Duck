@@ -94,7 +94,7 @@ var client = {
 	about: function(){
 		console.log("Redirect to about page")
 		this.socket.send("about")
-	}
+	},
 	//Shows the camera output
 	readCamera: function(){
 		this.socket.send("readCamera")
