@@ -10,7 +10,9 @@ from pygame import mixer
 if(__name__ == "__main__"):
 	arguments = Utilites.get_arguments()
 	# This gets the arguments from the Utilities script
-	#print(arguments)s
+	#print(arguments)
+	parameters = Utilites.get_parameters(arguments.train)
+	#Featches the perameaters
 	#print(parameters)
 	#The line above runs the perameters function
 	duck = DrivingDuck.DrivingDuck(parameters)
