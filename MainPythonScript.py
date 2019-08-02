@@ -19,7 +19,7 @@ if(__name__ == "__main__"):
 	arguments = Utilities.get_arguments()
 	# This gets the arguments from the Utilities script
 	#print(arguments)
-	parameters = Utilities.get_parameters()
+	parameters = Utilities.get_parameters(arguments.train)
 	#Featches the perameaters
 	#print(parameters)
 	duck = DrivingDuck.DrivingDuck(parameters)
