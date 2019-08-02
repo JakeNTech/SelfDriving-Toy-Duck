@@ -104,6 +104,6 @@ var client = {
 			.text('Start SelfDrive')
 			.click(function(){
 				client.self_drive()
-			}
+			})
 		}
 	};
