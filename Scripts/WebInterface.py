@@ -3,7 +3,7 @@
 #-----LOCAL IMPORTS-----------------------
 from Scripts.DuckCamera import CameraFeed
 from Scripts import DrivingDuck
-from Script import Utilites
+from Scripts import Utilites
 #-----IMPORTS External scripts-------------
 import time
 import os
@@ -22,7 +22,7 @@ class LocalServer(tornado.web.Application):
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
 		#Get root privlages on pi and then adjust paths to find the right files
-		root = Utilities.root_accsess()
+		root = Utilites.get_root()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Sets the file paths for the Index and lets tornado know we are using its file management
 		self.handlers = [(r"/", IndexHandler),(r"/websocket",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
