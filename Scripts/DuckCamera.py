@@ -1,6 +1,8 @@
 #Project Self-Driving (toy) Duck
 #DuckCamera.py
 #--------------------
+from Scripts import Utilities 
+#Imports the Utilities script
 from picamera import PiCamera
 import picamera.array
 from PIL import Image
@@ -19,11 +21,16 @@ class DuckCamera(object):
 		self.picam = PiCamera()
 		self.picam.rotation = 180
 		self.picam.framerate = 15
-		self.picam.resolution = 320,240
+		self.picam.resolution = (_parameters['width'], _parameters['height'])
 		# This sets the rotation and resoloutin of the camera.
 		time.sleep(2)
 		#this allows for the camera to sort its self out in tearms of expouser
 		#and contrast, and fous. This also factors in the delays
+		def save_frame(self,_turn):
+			name = string(Utilities.ms_ephoc())+":"+string(_turn)
+			#This takes the movement name ie.left and converts it to text
+			#This allows for training
+
 #Getting the camera feed
 #NO TWITCH
 class CameraFeed(object):

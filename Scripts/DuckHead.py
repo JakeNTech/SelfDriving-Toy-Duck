@@ -10,9 +10,12 @@ import tensorflow as tf
 import h5py
 import pickle
 #The above imports the python modules
+from Scripts import Utilities
+#imports the Utilities script
 #------------------------Predictions---------------------
 class DuckHead(object):
 	def __init__(self,_parameters):
+		Utilities.log("Initialisation model",1)
 		path = "/home/pi/SelfDriving-Toy-Duck/Config/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model"
 		self.model = load_model(path)
 		#with open(_parameters['model'],'rb')as file:
@@ -23,6 +26,7 @@ class DuckHead(object):
 	def GetDirections(self,_image):
 		x = time.time()
 		resoloution = self.model.predict(_image, batch_size=1)
+		x = Utilities.log("Model Predict",3,x)
 		max_val = 0
 		for idx,val in enumerate(resoloution[0]):
 			if val > max_val:
@@ -63,4 +67,5 @@ class SelfDriving(object):
 				if (directions != self.duck.currentDirections):
 					self.duck.stop(self.duck.currentDirections)
 					self.duck.move(directions)
+				Utilities.log("Waddeling "+directions[0],2)
 		self.duck.stop()

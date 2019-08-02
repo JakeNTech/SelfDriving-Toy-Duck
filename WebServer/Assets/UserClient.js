@@ -94,16 +94,25 @@ var client = {
 	about: function(){
 		console.log("Redirect to about page")
 		this.socket.send("about")
-	},
+	}
 	//Shows the camera output
 	readCamera: function(){
 		this.socket.send("readCamera")
 	},
-	setMode: function(){
-		$('#action-button')
-			.text('Start SelfDrive')
-			.click(function(){
-				client.self_drive()
-			}
+	setMode: function(_mode){
+		if (_mode =='True'){
+			$('#action-button')
+				.text('Train')
+				.click(function(){
+					client.save_frames()
+				})
 		}
-	};
+		else{
+			$('#action-button')
+				.text('Start SelfDrive ')
+				.click(function(){
+					client.self_drive()
+				})
+		}
+	}
+};
