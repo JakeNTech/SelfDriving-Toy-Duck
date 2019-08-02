@@ -8,7 +8,7 @@ from Scripts import WebInterface, DrivingDuck, Utilities
 from pygame import mixer
 #--------Main Function--------------
 if(__name__ == "__main__"):
-	parameters = Utilites.get_parameters()
+	parameters = Utilities.get_parameters()
 	#Featches the perameaters
 	#print(parameters)
 	#The line above runs the perameters function
