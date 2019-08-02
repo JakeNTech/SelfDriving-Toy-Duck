@@ -3,6 +3,7 @@
 #-----LOCAL IMPORTS-----------------------
 from Scripts.DuckCamera import CameraFeed
 from Scripts import DrivingDuck
+from Script import Utilites
 #-----IMPORTS External scripts-------------
 import time
 import os

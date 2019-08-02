@@ -1,4 +1,5 @@
 import json
+import os
 def get_parameters():
 	with open("./Config/configuration.json") as file:
 		data = json.load(file)
@@ -28,3 +29,5 @@ def get_parameters():
 		"model": data["model"]
 	}
 	return parameters
+def get_root():
+	return os.path.normpath(os.path.dirname(__file__))
