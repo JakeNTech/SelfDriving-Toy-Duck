@@ -9,7 +9,7 @@ from pygame import mixer
 #-----------------------
 #This is for the realistic duck noises
 #Settigns and configurations
-perameters = {
+parameters = {
 	"verbose":"True",
 	
 	"size": 1,
