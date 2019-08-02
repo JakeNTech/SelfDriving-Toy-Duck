@@ -24,9 +24,9 @@ def get_parameters():
 			'port': data['port'],
 			'duck': None
 		}
-	}
-	parameters['headParameters'] = {
-		"model": data["model"]
+		,'headParameters:'{
+			'mode':data["model"]
+		}
 	}
 	return parameters
 def get_root():
