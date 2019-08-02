@@ -99,20 +99,11 @@ var client = {
 	readCamera: function(){
 		this.socket.send("readCamera")
 	},
-	setMode: function(_mode){
-		if (_mode =='True'){
-			$('#action-button')
-				.text('Train')
-				.click(function(){
-					client.save_frames()
-				})
+	setMode: function(){
+		$('#action-button')
+			.text('Start SelfDrive')
+			.click(function(){
+				client.self_drive()
+			}
 		}
-		else{
-			$('#action-button')
-				.text('Start SelfDrive ')
-				.click(function(){
-					client.self_drive()
-				})
-		}
-	}
-};
+	};
