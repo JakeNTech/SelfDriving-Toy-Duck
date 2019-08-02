@@ -19,7 +19,7 @@ class DuckCamera(object):
 		self.picam = PiCamera()
 		self.picam.rotation = 180
 		self.picam.framerate = 15
-		self.picam.resolution = (_parameters['width'], _parameters['height'])
+		self.picam.resolution = 320,240
 		# This sets the rotation and resoloutin of the camera.
 		time.sleep(2)
 		#this allows for the camera to sort its self out in tearms of expouser
