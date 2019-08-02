@@ -16,7 +16,6 @@ def get_parameters():
 			'duckConfiguration': data['duckConfiguration']
 		}
 		,'cameraParameters':{
-			'path': data["train_data"],
 			'width': data['width'],
 			'height': data['height']
 		}
