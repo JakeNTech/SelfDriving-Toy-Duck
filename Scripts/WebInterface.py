@@ -1,9 +1,9 @@
 #Project Self-Driving (toy) Duck
 #WebInterface.py
 #-----LOCAL IMPORTS-----------------------
+from Scripts import Utilities
 from Scripts.DuckCamera import CameraFeed
 from Scripts import DrivingDuck
-from Scripts import Utilities
 #-----IMPORTS External scripts-------------
 import time
 import os
@@ -18,11 +18,13 @@ import tornado.web
 class LocalServer(tornado.web.Application):
 	#Class to help contain the code
 	def __init__(self,parameters,_duck):
+		Utilities .log("Init. Server",1)
 		#logs the session start
 		self.duck= _duck
 		self.camera = self.duck.camera.picam
+		self.port = parameters['port']
 		#Get root privlages on pi and then adjust paths to find the right files
-		root = Utilities.get_root()
+		root = Utilities.root_accsess()
 		path = os.path.join(root, '../../SelfDriving-Toy-Duck')
 		#Sets the file paths for the Index and lets tornado know we are using its file management
 		self.handlers = [(r"/", IndexHandler),(r"/websocket",WebSocket),(r'/static/(.*)', tornado.web.StaticFileHandler, {'path':path})]
@@ -30,7 +32,7 @@ class LocalServer(tornado.web.Application):
 		settings = {'debug':True}
 		super(LocalServer,self).__init__(self.handlers, **settings)
 		CameraFeed(self.duck)
-		self.listen(8090)
+		self.listen(self.port)
 		tornado.ioloop.IOLoop.instance().start()
 		#This starts the camera stream for the duck, and users a pre-defined loop
 #------CLASS IndexHandler --------------------
@@ -38,7 +40,8 @@ class IndexHandler(tornado.web.RequestHandler):
 	#When you type in the IP/URL you are taken to an Index.html by defualt
 	#This is the handler for that in tornado
 	def get(self):
-		self.render("../WebServer/index.html", port=8090)
+		self.render("../WebServer/index.html", port=self.application.port)
+#------CLASS Error Handler --------------------
 class ErrorHandler(tornado.web.RequestHandler):
 	#if there is anerror this is what tornado should send
 	def get(self):
@@ -81,5 +84,9 @@ class WebSocket(tornado.websocket.WebSocketHandler):
 			self.application.duck.drive = False
 			self.application.duck.stop()
 			#If the user wants to save the frames of the camera
-		elif (message=="About"):
-			self.AboutHandler()
+		# If the user presses shutdown
+		elif (message == "shutdown"):
+			DrivingDuck.shutdown()
+		#Error Catching
+		else:
+			Utilities.log("An unnexpected error cooured, from:" + message)

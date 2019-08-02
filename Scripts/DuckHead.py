@@ -59,11 +59,6 @@ class SelfDriving(object):
 				#Gets the images for processing
 				image = self.duck.camera.lastImg
 				#Gets the predictions about the movement
-				if (self.duck.stopDetected):
-					self.duck.stop(self.duck.currentDirections)
-					time.sleep(10)
-					self.duck.currentDirections = []
-					
 				directions = self.duck.head.GetDirections(image)
 				#If the direction has changed, change
 				if (directions != self.duck.currentDirections):
