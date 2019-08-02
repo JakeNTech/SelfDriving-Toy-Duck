@@ -10,15 +10,6 @@ from Scripts import DuckCamera
 #Imports the other scripts
 #--------Class--------------------------
 class DrivingDuck(object):
-	#---------Initialsation settings -----
-	duckParameters = {"duckConfiguration":{
-		"FORWARD": {"pin":13,"lable_code":0},
-		"RIGHT": {"pin":11, "lable_code":1},
-		"LEFT": {"pin":18, "lable_code":2},
-		"BACKWARDS": {"pin":15, "lable_code":-1},
-		"SPEED":{"pin": 16, "default":55}
-	}
-	}
 	def __init__(self,_parameters):
 		self.drive = False
 		self.log_photos = False
@@ -26,12 +17,14 @@ class DrivingDuck(object):
 		#When initalising it clears all the values for manual control
 		#Without loggin
 		#Prevents any accidents
-		self.width = 320
-		self.height = 240
-		self.verbose = True
-		self.configuration = duckParameters
-		self.channels = 3
-		self.defaultSpeed = 55
+		self.width = _parameters['duckParameters']['width']
+		self.height = _parameters['duckParameters']['height']
+		self.verbose = _parameters['duckParameters']['verbose']
+		self.configuration = _parameters['duckParameters']['duckConfiguration']
+		self.channels = _parameters['duckParameters']['channels']
+		self.defaultSpeed = self.configuration['SPEED']['default']
+		#Initailises all the parameatres 
+
 		#Initailises all the parameatres 
 	#-----------Self Driving-----------------
 		if('headParameters' in _parameters):

@@ -1,5 +1,5 @@
 import json
-def get_parameters(_train):
+def get_parameters():
 	with open("./Config/configuration.json") as file:
 		data = json.load(file)
 	# this opens the configuration file that contains information such as the 
