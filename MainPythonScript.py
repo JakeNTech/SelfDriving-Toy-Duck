@@ -14,16 +14,39 @@ def DuckSound(SoundTitle):
 	mixer.init()
 	mixer.music.load(SoundTitle)
 	mixer.music.play()
+#Settigns and configurations
+parameters = {
+	"duckParameters": {
+		'width': 320,
+		'height': 240,
+		'pigame': "False",
+		'verbose': "True",
+		'channels': 3,
+		'duckConfiguration': {
+			"FORWARD": {"pin":13,"lable_code":0},
+			"RIGHT": {"pin":11, "lable_code":1},
+			"LEFT": {"pin":18, "lable_code":2},
+			"BACKWARDS": {"pin":15, "lable_code":-1},
+			"SPEED":{"pin": 16, "default":55}
+		}
+	}
+	,'cameraParameters':{
+		'width': 320,
+		'height': 240
+	}
+	,'webserverParameters':{
+		'duck': None
+	}
+	"headParameters":{
+	"model":"PathToFile"
+	}
+}
 #--------Main Function--------------
 if(__name__ == "__main__"):
-	arguments = Utilities.get_arguments()
-	# This gets the arguments from the Utilities script
-	#print(arguments)
-	parameters = Utilities.get_parameters(arguments.train)
-	#Featches the perameaters
-	#print(parameters)
+	parameters = parameters
+	#The line above runs the perameters function
 	duck = DrivingDuck.DrivingDuck(parameters)
-	# This gets the duck ready for ation
+	# This gets the duck ready for ationxt
 	duck.WebInterface = WebInterface.LocalServer(parameters['webserverParameters'],duck)
 	# This starts to host the GUI
 	print('Quack! Ready to get the bread!')

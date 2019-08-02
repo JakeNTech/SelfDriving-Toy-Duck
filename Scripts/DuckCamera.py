@@ -26,11 +26,6 @@ class DuckCamera(object):
 		time.sleep(2)
 		#this allows for the camera to sort its self out in tearms of expouser
 		#and contrast, and fous. This also factors in the delays
-		def save_frame(self,_turn):
-			name = string(Utilities.ms_ephoc())+":"+string(_turn)
-			#This takes the movement name ie.left and converts it to text
-			#This allows for training
-
 #Getting the camera feed
 #NO TWITCH
 class CameraFeed(object):

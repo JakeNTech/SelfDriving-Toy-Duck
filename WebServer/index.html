@@ -27,13 +27,15 @@
         <script src="static/WebServer/Assets/UserClient.js" type="text/javascript"></script>
 		<br>
 		<div class="container">
-			<!--- This is a contanier, it holds all the CSS stuff, this will mean it looks facny -->
+			<!--- This is a contanier, it holds all the CSS, this will mean it looks facny -->
 				<div class="col-xs-11">
 					<p>The self-driving duck interface</p>
 					<!--- The page heading -->
 				</div>
+				<!--- Closing the <div> tag -->
 			</div>
-			<br>
+			<br> 
+			<!--- Line break to help keep things split up on the page  -->
 			<div class="row">
 				<div class="col-xs-15">
 					<img id="video"></img>
@@ -41,6 +43,7 @@
 				</div>
 			</div>
 			<br>
+			<!--- Line break to help keep things split up on the page  -->
 			<div class="row">
             	<div class="col-xs-15 text-center">
             		<button id="action-button">Start Self-Drive!</i></button>
@@ -48,6 +51,7 @@
             	</div>
             </div>
             <br>
+			<!--- Line break to help keep things split up on the page  -->
 			<div class="row">
 				<div class="col-xs-15 text-center">
 					<button id="MoveForwardButton" class ="DirectionButton"> <i class="up"> </i> </button>
@@ -77,7 +81,7 @@
         </div>
         <!-- We have not got all the facy elements, time for the hard work -->
         <script>
-        	client.setMode('{{mode}}')
+        	//JavaScript to ensure that all the code 
 			client.connect({{port}})
  		</script>
     </body>
