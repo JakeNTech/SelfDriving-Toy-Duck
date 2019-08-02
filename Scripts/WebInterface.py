@@ -30,7 +30,7 @@ class LocalServer(tornado.web.Application):
 		settings = {'debug':True}
 		super(LocalServer,self).__init__(self.handlers, **settings)
 		CameraFeed(self.duck)
-		self.listen(self.port)
+		self.listen(8090)
 		tornado.ioloop.IOLoop.instance().start()
 		#This starts the camera stream for the duck, and users a pre-defined loop
 #------CLASS IndexHandler --------------------
