@@ -38,9 +38,9 @@ class DrivingDuck(object):
 				#Load the settings
 				#Set train to true
 	#-----------Self Driving-----------------
-	#	if('headParameters' in _parameters):
-	#		from Scripts.DuckHead import DuckHead
-	#		self.head = DuckHead(_parameters['headParameters'])
+		if('headParameters' in _parameters):
+			from Scripts.DuckHead import DuckHead
+			self.head = DuckHead(_parameters['headParameters'])
 		# If Self Driving settings are set
 			#Load Thinking script
 			#Load configuration
@@ -73,9 +73,9 @@ class DrivingDuck(object):
 		self.trainData_parameters['duck'] = self
 		self.trainData = TrainData.TrainData(self.trainDataParameters)
 	#---------Self Driving-----------	
-	#def selfDrive(self):
-		#from Scripts.DuckHead import SelfDriving
-		#SelfDriving(self)
+	def selfDrive(self):
+		from Scripts.DuckHead import SelfDriving
+		SelfDriving(self)
 	#--------Stoping the duck--------
 	def stop(self,_directions=[]):
 		if(len(_directions) == 0):
