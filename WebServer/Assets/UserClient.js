@@ -35,12 +35,11 @@ var client = {
 	//connects the users device to the open socket on the pi
 	connect: function (port,callback) {
 		var self = this, video = document.getElementById("video");
-        this.socket = new WebSocket("ws://" + window.location.hostname + ":" + port + "/websocket");
+        this.socket = new WebSocket("ws://" + window.location.hostname + ":" + socket + "/websocket");
 		//The below askes for the stream once the contorler and PI are connected
 		this.socket.onopen = function(){
 			console.log("Connected!");
 			self.readCamera();
-			BindDPadButtons(self)
 		};
 		// to prevent oddness with a video stream on the users device, the video feed is converted too images, and this ensures
 		// that there is not issues with this

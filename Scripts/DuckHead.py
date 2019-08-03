@@ -11,7 +11,7 @@ import h5py
 import pickle
 #The above imports the python modules
 from Scripts import Utilities
-imports the Utilities script
+#imports the Utilities script
 #------------------------Predictions---------------------
 class DuckHead(object):
 	def __init__(self,_parameters):
