@@ -9,7 +9,7 @@ from PIL import Image
 import numpy
 import threading
 import time
-import cv2
+#import cv2
 #NOOOO NO MORE CV2 PLEASE!
 import io
 #Getting the camere going
@@ -62,31 +62,31 @@ class CameraFeed(object):
 			img.save(f, "JPEG")
 			self.camera.lastImgBytes = f.getvalue()
 			#This converts the image into its raw btes value and then saves it
-class ObjectDetection(object):
-	def __init__(self):
-		self.stopDetected = False
-		self.classifier = cv2.CascadeClassifier('Config/stop_sign.xml')
+#class ObjectDetection(object):
+#	def __init__(self):
+#		self.stopDetected = False
+#		self.classifier = cv2.CascadeClassifier('Config/stop_sign.xml')
 
-	def detect(self, _image):
+#	def detect(self, _image):
 		# detection
-		cascade_obj = self.classifier.detectMultiScale(
-			_image,
-			scaleFactor=1.1,
-			minNeighbors=5,
-			minSize=(30, 30),
-			flags=cv2.CASCADE_SCALE_IMAGE
-		)
-
-		# draw a rectangle around the objects
-		if (len(cascade_obj)):
-			self.stop_detected = True
-			for (x_pos, y_pos, width, height) in cascade_obj:
-				cv2.rectangle(_image, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
-				cv2.putText(_image, 'STOP', (x_pos, y_pos-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)			
-		else:
-			self.stop_detected = False
-
-		return _image
-		#This finds an object from the model file and puts a box arround it
-		#It could be made to put text under the object that has been detected, this 
-		#will be seen by the end user on the HTML page
+#		cascade_obj = self.classifier.detectMultiScale(
+#			_image,
+#			scaleFactor=1.1,
+#			minNeighbors=5,
+#			minSize=(30, 30),
+#			flags=cv2.CASCADE_SCALE_IMAGE
+#		)
+#
+#		# draw a rectangle around the objects
+#		if (len(cascade_obj)):
+#			self.stop_detected = True
+#			for (x_pos, y_pos, width, height) in cascade_obj:
+#				cv2.rectangle(_image, (x_pos+5, y_pos+5), (x_pos+width-5, y_pos+height-5), (255, 255, 255), 2)
+#				cv2.putText(_image, 'STOP', (x_pos, y_pos-10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)			
+#		else:
+#			self.stop_detected = False
+#
+#		return _image
+#		#This finds an object from the model file and puts a box arround it
+#		#It could be made to put text under the object that has been detected, this 
+#		#will be seen by the end user on the HTML page#
