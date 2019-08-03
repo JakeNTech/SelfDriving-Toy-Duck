@@ -97,11 +97,20 @@ var client = {
 		this.socket.send("readCamera")
 		console.log("readCamera")
 	},
-	setMode: function(){
-		$('#action-button')
-			.text('Start SelfDrive')
-			.click(function(){
-				client.self_drive()
-			})
-		}
-	};
+	setMode: function(_mode){
+        // Set Train Mode
+        if(_mode == 'True'){
+            $('#action-button' )
+                .text('Train! ')
+                .click(function(){
+                    client.save_frames()
+                })
+        }else{
+            $('#action-button' )
+                .text('Self Drive ! ')
+                .click(function(){
+                    client.self_drive()
+                })
+        } 
+    }
+};

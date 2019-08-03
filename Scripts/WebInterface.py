@@ -10,6 +10,7 @@ import os
 import io
 import base64
 import webbrowser
+import hashlib
 import threading
 # Imports all the needed buit in python moduls
 from tornado.ioloop import PeriodicCallback
