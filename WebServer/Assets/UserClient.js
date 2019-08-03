@@ -35,11 +35,12 @@ var client = {
 	//connects the users device to the open socket on the pi
 	connect: function (port,callback) {
 		var self = this, video = document.getElementById("video");
-        this.socket = new WebSocket("ws://" + window.location.hostname + ":" + socket + "/websocket");
+        this.socket = new WebSocket("ws://" + window.location.hostname + ":" + port + "/websocket");
 		//The below askes for the stream once the contorler and PI are connected
 		this.socket.onopen = function(){
 			console.log("Connected!");
 			self.readCamera();
+			bindDpadButtons(self)
 		};
 		// to prevent oddness with a video stream on the users device, the video feed is converted too images, and this ensures
 		// that there is not issues with this
@@ -75,7 +76,7 @@ var client = {
 			}
 			else if (PleaseConfirm == false){
 				alert("Aborting!")
-				console.log("Stopping")
+				console.log("Stopping");
 			}
 		}
 		else{
@@ -95,7 +96,7 @@ var client = {
 	//Shows the camera output
 	readCamera: function(){
 		this.socket.send("readCamera")
-		console.log("readCamera")
+		console.log("readCamera");
 	},
 	setMode: function(_mode){
         // Set Train Mode
@@ -103,13 +104,13 @@ var client = {
             $('#action-button' )
                 .text('Train! ')
                 .click(function(){
-                    client.save_frames()
+                    client.save_frames();
                 })
         }else{
             $('#action-button' )
                 .text('Self Drive ! ')
                 .click(function(){
-                    client.self_drive()
+                    client.self_drive();
                 })
         } 
     }
