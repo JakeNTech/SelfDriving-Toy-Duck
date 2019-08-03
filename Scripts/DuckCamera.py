@@ -24,6 +24,8 @@ class DuckCamera(object):
 		self.picam.resolution = (_parameters['width'], _parameters['height'])
 		# This sets the rotation and resoloutin of the camera.
 		time.sleep(2)
+		self.lastImg = numpy.zeros([1,240,320,3])
+		self.lastImgBytes = b'a'
 		#this allows for the camera to sort its self out in tearms of expouser
 		#and contrast, and fous. This also factors in the delays
 		def save_frame(self,_turn):
