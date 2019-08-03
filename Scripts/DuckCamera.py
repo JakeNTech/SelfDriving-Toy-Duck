@@ -47,7 +47,7 @@ class CameraFeed(object):
 			rawCapture = picamera.array.PiRGBArray(self.camera.picam)
 			self.camera.picam.capture(rawCapture, format="rgb",use_video_port=True)
 			#this creates a RGB capture and files it into an array
-
+			#WORKING
 			img = self.detection.detect(rawCapture.array.astype('uint8'))
 			# this runs the object detection
 			self.camera.stopDetected = self.detection.stopDetected
