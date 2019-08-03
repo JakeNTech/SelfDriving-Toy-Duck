@@ -38,9 +38,9 @@ class DrivingDuck(object):
 				#Load the settings
 				#Set train to true
 	#-----------Self Driving-----------------
-		if('headParameters' in _parameters):
-			from Scripts.DuckHead import DuckHead
-			self.head = DuckHead(_parameters['headParameters'])
+	#	if('headParameters' in _parameters):
+	#		from Scripts.DuckHead import DuckHead
+	#		self.head = DuckHead(_parameters['headParameters'])
 		# If Self Driving settings are set
 			#Load Thinking script
 			#Load configuration
@@ -73,9 +73,9 @@ class DrivingDuck(object):
 		self.trainData_parameters['duck'] = self
 		self.trainData = TrainData.TrainData(self.trainDataParameters)
 	#---------Self Driving-----------	
-	def selfDrive(self):
-		from Scripts.DuckHead import SelfDriving
-		SelfDriving(self)
+	#def selfDrive(self):
+		#from Scripts.DuckHead import SelfDriving
+		#SelfDriving(self)
 	#--------Stoping the duck--------
 	def stop(self,_directions=[]):
 		if(len(_directions) == 0):
@@ -102,21 +102,21 @@ class DrivingDuck(object):
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.currentDirections = _directions
 	#----------Logging Movement------	
-	def logMove(self,_directions):
-		if(self.trainMode):
-			self.trainData.logTrainData(_directions,self)
-		else:
-			self.move(_directions)
-		current_time = time.time()
-		if(self.logPhotos):
-			self.camera.saveFrame(_directions[0])
-			current_time = Utilities.log('Saved images',2,current_time)
+	#def logMove(self,_directions):
+	#	if(self.trainMode):
+	#		self.trainData.logTrainData(_directions,self)
+	#	else:
+	#		self.move(_directions)
+	#	current_time = time.time()
+	#	if(self.logPhotos):
+	#		self.camera.saveFrame(_directions[0])
+	#		current_time = Utilities.log('Saved images',2,current_time)
 	#----------Getting the script to stop---	
-	def shutdown(self):
-		Utilities.log("Time for some sleep")
-		GPIO.cleanup()
-		if(self.trainData):
-			self.trainData.save()
-		else:
-			exit()
+	#def shutdown(self):
+	#	Utilities.log("Time for some sleep")
+	#	GPIO.cleanup()
+	#	if(self.trainData):
+	#		self.trainData.save()
+	#	else:
+	#		exit()
 #---------END SCRIPT AND CLASS-----------------
