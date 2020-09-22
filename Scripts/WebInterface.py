@@ -40,7 +40,7 @@ class IndexHandler(tornado.web.RequestHandler):
 	#When you type in the IP/URL you are taken to an Index.html by defualt
 	#This is the handler for that in tornado
 	def get(self):
-		self.render("../WebServer/index.html", port=self.application.port, mode=self.application.duck.trainMode)
+		self.render("../WebServer/index.html", port=self.application.port)
 class ErrorHandler(tornado.web.RequestHandler):
 	#if there is anerror this is what tornado should send
 	def get(self):

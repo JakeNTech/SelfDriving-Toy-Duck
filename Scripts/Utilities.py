@@ -37,48 +37,33 @@ def root_accsess():
 	return os.path.normpath(os.path.dirname(__file__))
 #This get root privaleges, the second highest you can get on UNIX
 #It goes under SU rights
-def get_arguments():
-	parser = argparse.ArgumentParser(prog="drive")
-	parser.add_argument("-train", help="Set for training", action="store_true", default=False)
-	prased_arguments = parser.parse_args()
-	return prased_arguments
-#This converts the command line arguments into a way python will understand
-def get_parameters(_train):
-	with open("./Config/configuration.json") as file:
-		data = json.load(file)
-	# this opens the configuration file that contains information such as the 
-	#the GIPO pins
-	#Below is setting the setings for the duck
+def get_parameters():
 	parameters = {
 		"duckParameters": {
-			'width': data['width'],
-			'height': data['height'],
-			'pigame': data["pigame"],
-			'verbose': data["verbose"],
-			'channels': data["channels"],
-			'duckConfiguration': data['duckConfiguration']
+			'width': "320",
+			'height': "240",
+			'pigame': "False",
+			'verbose': "True",
+			'channels': "3",
+			#GPIO Pinout
+			'duckConfiguration': {
+				"FORWARD": {"pin":11,"lable_code":0},
+				"RIGHT": {"pin":13, "lable_code":1},
+				"LEFT": {"pin":15, "lable_code":2},
+				"BACKWARDS": {"pin":18, "lable_code":-1},
+				"SPEED":{"pin": 16, "default":55}
+			}
 		}
 		,'cameraParameters':{
-			'path': data["train_data"],
-			'width': data['width'],
-			'height': data['height']
+			'width': "320",
+			'height': "240"
 		}
 		,'webserverParameters':{
-			'port': data['port'],
+			'port': "8090",
 			'duck': None
 		}
 	}
-	if(_train):
-		# if the train mode is enabled then use thease parameaterts
-		parameters['trainDataParameters']= {
-			'path': data['trainData'],
-			'width': data['width'],
-			'height': data['height'],
-			'channels':data['channels']
-		}
-	else:
-		# if not in training mode set to use the model file
-		parameters['headParameters'] = {
-			"model": data["model"]
-		}
+	parameters['headParameters'] = {
+		"model": "/home/pi/SelfDriving-Toy-Duck/keras_model_0.01_learning_rate_32_batch_size_SGD_optimizer_89.0_acc.model",
+	}
 	return parameters

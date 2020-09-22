@@ -28,15 +28,6 @@ class DrivingDuck(object):
 		self.channels = _parameters['duckParameters']['channels']
 		self.defaultSpeed = self.configuration['SPEED']['default']
 		#Initailises all the parameatres 
-	#-----------Training Mode----------------
-		if('trainDataParams' in _parameters):
-			import TrainData
-			self.trainData = TrainData.TrainData(_parameters['trainDataParameters'])
-			self.trainMode = True
-		# If the train mode setting is set:
-			#import the training script
-				#Load the settings
-				#Set train to true
 	#-----------Self Driving-----------------
 		if('headParameters' in _parameters):
 			from Scripts.DuckHead import DuckHead
@@ -68,10 +59,6 @@ class DrivingDuck(object):
 		self.stop()
 	def setspeed(self,_speed):
 		self.speed.ChangeDutyCycle(_speed)
-	#---------Training---------------	
-	def train(self):
-		self.trainData_parameters['duck'] = self
-		self.trainData = TrainData.TrainData(self.trainDataParameters)
 	#---------Self Driving-----------	
 	def selfDrive(self):
 		from Scripts.DuckHead import SelfDriving
@@ -101,16 +88,6 @@ class DrivingDuck(object):
 			for directions in _directions:
 				GPIO.output(self.configuration[directions]["pin"],True)
 			self.currentDirections = _directions
-	#----------Logging Movement------	
-	#def logMove(self,_directions):
-	#	if(self.trainMode):
-	#		self.trainData.logTrainData(_directions,self)
-	#	else:
-	#		self.move(_directions)
-	#	current_time = time.time()
-	#	if(self.logPhotos):
-	#		self.camera.saveFrame(_directions[0])
-	#		current_time = Utilities.log('Saved images',2,current_time)
 	#----------Getting the script to stop---	
 	#def shutdown(self):
 	#	Utilities.log("Time for some sleep")
